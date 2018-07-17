@@ -1,6 +1,7 @@
 package factorymanagment.model.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity(name = "employee")
 public class Employee {
@@ -9,9 +10,6 @@ public class Employee {
     @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "taxId")
-    private long taxId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -24,6 +22,12 @@ public class Employee {
 
     @Column(name = "telephone", length = 13)
     private String telephone;
+
+    @Column(name = "photoUri")
+    private String photoUri;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private PassportData passportData;
 
     /**
      * Date format example:
@@ -41,7 +45,7 @@ public class Employee {
      *
      */
     @Column(name = "born_date")
-    private String bornDate;
+    private Date bornDate;
 
     @Column(name = "sex")
     private boolean sex;
@@ -49,9 +53,13 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
-    @JoinColumn(name = "date_event_id")
+    @JoinColumn(name = "timetable_id")
     @ManyToOne(fetch = FetchType.EAGER)
-    private DateEvent dateEvent;
+    private Timetable timetable;
+
+//    @JoinColumn(name = "date_event_id")
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private Set<Timetable> timetables;
 
 
 
@@ -61,14 +69,6 @@ public class Employee {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getTaxId() {
-        return taxId;
-    }
-
-    public void setTaxId(long taxId) {
-        this.taxId = taxId;
     }
 
     public String getFirstName() {
@@ -103,11 +103,11 @@ public class Employee {
         this.telephone = telephone;
     }
 
-    public String getBornDate() {
+    public Date getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(String bornDate) {
+    public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
 
@@ -127,17 +127,44 @@ public class Employee {
         this.account = account;
     }
 
-    //    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "employer_role",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles = new HashSet<>();
+    public String getPhotoUri() {
+        return photoUri;
+    }
 
+    public void setPhotoUri(String photoUri) {
+        this.photoUri = photoUri;
+    }
 
+    public Timetable getTimetable() {
+        return timetable;
+    }
 
+    public void setTimetable(Timetable timetable) {
+        this.timetable = timetable;
+    }
 
+    public PassportData getPassportData() {
+        return passportData;
+    }
 
+    public void setPassportData(PassportData passportData) {
+        this.passportData = passportData;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", photoUri='" + photoUri + '\'' +
+                ", passportData=" + passportData +
+                ", bornDate=" + bornDate +
+                ", sex=" + sex +
+                ", account=" + account +
+                ", timetable=" + timetable +
+                '}';
+    }
 }
