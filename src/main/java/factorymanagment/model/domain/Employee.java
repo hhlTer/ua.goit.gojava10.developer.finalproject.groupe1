@@ -1,9 +1,6 @@
 package factorymanagment.model.domain;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "employee")
 public class Employee {
@@ -13,8 +10,8 @@ public class Employee {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "tid")
-    private long tid;
+    @Column(name = "taxId")
+    private long taxId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -52,6 +49,10 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
+    @JoinColumn(name = "date_event_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    private DateEvent dateEvent;
+
 
 
     public long getId() {
@@ -62,12 +63,12 @@ public class Employee {
         this.id = id;
     }
 
-    public long getTid() {
-        return tid;
+    public long getTaxId() {
+        return taxId;
     }
 
-    public void setTid(long tid) {
-        this.tid = tid;
+    public void setTaxId(long taxId) {
+        this.taxId = taxId;
     }
 
     public String getFirstName() {
