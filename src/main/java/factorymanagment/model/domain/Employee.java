@@ -1,6 +1,7 @@
 package factorymanagment.model.domain;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity(name = "employee")
@@ -50,6 +51,9 @@ public class Employee {
     @Column(name = "sex")
     private boolean sex;
 
+    @Column(name = "salary_per_hour")
+    private BigDecimal salaryPerHour;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
@@ -62,6 +66,14 @@ public class Employee {
 //    private Set<Timetable> timetables;
 
 
+
+    public BigDecimal getSalaryPerHour() {
+        return salaryPerHour;
+    }
+
+    public void setSalaryPerHour(BigDecimal salaryPerHour) {
+        this.salaryPerHour = salaryPerHour;
+    }
 
     public long getId() {
         return id;
@@ -85,6 +97,23 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", photoUri='" + photoUri + '\'' +
+                ", passportData=" + passportData +
+                ", bornDate=" + bornDate +
+                ", sex=" + sex +
+                ", salaryPerHour=" + salaryPerHour +
+                ", account=" + account +
+                '}';
     }
 
     public String getEmail() {
@@ -151,19 +180,4 @@ public class Employee {
         this.passportData = passportData;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", photoUri='" + photoUri + '\'' +
-                ", passportData=" + passportData +
-                ", bornDate=" + bornDate +
-                ", sex=" + sex +
-                ", account=" + account +
-                '}';
-    }
 }
