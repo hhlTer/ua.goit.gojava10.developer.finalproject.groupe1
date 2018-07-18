@@ -53,9 +53,9 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
-    @JoinColumn(name = "timetable_id")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Timetable timetable;
+//    @JoinColumn(name = "timetable_id")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Timetable timetable;
 
 //    @JoinColumn(name = "date_event_id")
 //    @OneToMany(fetch = FetchType.EAGER)
@@ -135,13 +135,13 @@ public class Employee {
         this.photoUri = photoUri;
     }
 
-    public Timetable getTimetable() {
-        return timetable;
-    }
-
-    public void setTimetable(Timetable timetable) {
-        this.timetable = timetable;
-    }
+//    public Timetable getTimetable() {
+//        return timetable;
+//    }
+//
+//    public void setTimetable(Timetable timetable) {
+//        this.timetable = timetable;
+//    }
 
     public PassportData getPassportData() {
         return passportData;
@@ -164,7 +164,6 @@ public class Employee {
                 ", bornDate=" + bornDate +
                 ", sex=" + sex +
                 ", account=" + account +
-                ", timetable=" + timetable +
                 '}';
     }
 }

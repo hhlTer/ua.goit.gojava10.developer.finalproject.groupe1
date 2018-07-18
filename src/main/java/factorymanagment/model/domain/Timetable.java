@@ -27,8 +27,10 @@ public class Timetable {
     @OneToOne(cascade = CascadeType.ALL)
     private WorkHours workHours;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "timetable", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "timetable_employee",
+                joinColumns = @JoinColumn(name = "timetable_id"),
+                inverseJoinColumns = @JoinColumn(name = "employee_id"))
     private Set<Employee> employeeSet;
 
     public long getTimetableId() {

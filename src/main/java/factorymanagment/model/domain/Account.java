@@ -1,6 +1,7 @@
 package factorymanagment.model.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "account")
 public class Account {
@@ -16,9 +17,11 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @JoinColumn(name = "id_role")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Role role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "account_role",
+        joinColumns = @JoinColumn(name = "account_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roleSet;
 
     public long getAccount_id() {
         return account_id;
@@ -44,11 +47,11 @@ public class Account {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<Role> getRoleSet() {
+        return roleSet;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
     }
 }

@@ -17,10 +17,6 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Account> accountSet;
-
     public long getRoleId() {
         return roleId;
     }
@@ -37,19 +33,11 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public Set<Account> getAccountSet() {
-        return accountSet;
-    }
-
-    public void setAccountSet(Set<Account> accountSet) {
-        this.accountSet = accountSet;
-    }
-
     @Override
     public String toString() {
         return "Role{" +
-                "role='" + roleName + '\'' +
-                ", accountSet=" + accountSet +
+                "roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
                 '}';
     }
 }
