@@ -9,6 +9,8 @@ public class IndexController {
 
     @GetMapping("/")
     public ModelAndView mainPage(){
+        ModelAndView modelAndView = new ModelAndView("sds");
+
         return new ModelAndView("index");
     }
 }

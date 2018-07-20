@@ -7,7 +7,7 @@ import java.util.Set;
 public class Account {
 
     @Id
-    @Column(name = "account_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long account_id;
 
@@ -16,6 +16,9 @@ public class Account {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "active")
+    private int active;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "account_role",
@@ -53,5 +56,13 @@ public class Account {
 
     public void setRoleSet(Set<Role> roleSet) {
         this.roleSet = roleSet;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
     }
 }
