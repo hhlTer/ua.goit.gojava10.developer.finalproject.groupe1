@@ -103,8 +103,29 @@
 
 
             <div id="NewUser" class="w3-container w3-white myLink"style="display:none">
-                <h3>You are welcome!</h3>
+
+                <h3>Create User</h3>
+
+                <h6 >Event theme:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Event theme">
+                <h6 >Location of event:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Location of event">
+
+                <div class="w3-container w3-margin-top" style="padding: 0;!important;">
+                    <h6 class="w3-quarter">Event Date:</h6>
+                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay"></select>
+                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectMounth"></select>
+                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear"></select>
+                </div>
+
+                <div class="w3-margin-top">
+                    <h6>Description:</h6>
+                    <textarea placeholder="Description"></textarea>
+                </div>
+
+                <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='sendEvent'>Send new event</button>
             </div>
+
 
             <div id="Moderation" class="w3-container w3-white myLink"style="display:none">
                 <h3>Hello Boss!</h3>
