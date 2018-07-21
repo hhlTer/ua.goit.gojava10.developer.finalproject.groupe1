@@ -11,7 +11,51 @@ function openLink(evt, linkName) {
     }
     document.getElementById(linkName).style.display = "block";
     evt.currentTarget.className += " w3-red";
-
-
-
 }
+
+function ComboBoxDate() {
+    Day();
+    Mounth();
+    Year();
+}
+function Mounth() {
+    var select = document.getElementById("selectMounth");
+    var options = [
+    "January", "February", "March", "April",  "May",
+    "June",  "July",  "August",  "September",  "October",
+    "November",  "December"];
+
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[0].selected = 'selected';
+}
+
+function Day() {
+    var select = document.getElementById("selectDay");
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 1; i <= 31; i++) {
+        var opt = i;
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[0].selected = 'selected';
+}
+
+function Year() {
+    var select = document.getElementById("selectYear");
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 1900; i < 2050; i++) {
+        var opt = i;
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[100].selected = 'selected';
+}
+
