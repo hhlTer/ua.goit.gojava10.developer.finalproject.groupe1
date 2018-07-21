@@ -17,13 +17,16 @@ function ComboBoxDate() {
     Day();
     Mounth();
     Year();
+    Day1();
+    Mounth1();
+    Year1();
 }
 function Mounth() {
     var select = document.getElementById("selectMounth");
     var options = [
-    "January", "February", "March", "April",  "May",
-    "June",  "July",  "August",  "September",  "October",
-    "November",  "December"];
+        "January", "February", "March", "April",  "May",
+        "June",  "July",  "August",  "September",  "October",
+        "November",  "December"];
 
     // Optional: Clear all existing options first:
     select.innerHTML = "";
@@ -59,3 +62,45 @@ function Year() {
     select.options[100].selected = 'selected';
 }
 
+
+
+function Mounth1() {
+    var select = document.getElementById("selectMounth1");
+    var options = [
+        "January", "February", "March", "April",  "May",
+        "June",  "July",  "August",  "September",  "October",
+        "November",  "December"];
+
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[0].selected = 'selected';
+}
+
+function Day1() {
+    var select = document.getElementById("selectDay1");
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 1; i <= 31; i++) {
+        var opt = i;
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[0].selected = 'selected';
+}
+
+function Year1() {
+    var select = document.getElementById("selectYear1");
+    // Optional: Clear all existing options first:
+    select.innerHTML = "";
+    // Populate list with options:
+    for (var i = 1900; i < 2050; i++) {
+        var opt = i;
+        select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
+    }
+    select.options[100].selected = 'selected';
+}

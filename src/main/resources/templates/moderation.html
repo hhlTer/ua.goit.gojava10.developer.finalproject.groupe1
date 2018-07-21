@@ -70,13 +70,13 @@
     <div class="w3-container w3-content  w3-animate-bottom" id="autorization">
         <div class="w3-display w3-white" >
             <div class="w3-bar w3-black">
-                <button class="w3-bar-item w3-button w3-mobile tablink"  onclick="openLink(event, 'CreateEvent');" ><i class="fa fa-bell w3-margin-right"></i>Create event</button>
+                <button class="w3-bar-item w3-button w3-mobile tablink"  onclick="openLink(event, 'NewEvent');" ><i class="fa fa-bell w3-margin-right"></i>Create event</button>
                 <button class="w3-bar-item w3-button w3-mobile tablink" onclick="openLink(event, 'NewUser');"><i class="fa fa-address-card w3-margin-right"></i>New user</button>
                 <button class="w3-bar-item w3-button w3-mobile tablink" onclick="openLink(event, 'Moderation');"><i class="fa fa-binoculars w3-margin-right"></i>Moderation</button>
             </div>
 
             <!-- Tabs -->
-            <div id="CreateEvent" class="w3-container w3-white myLink">
+            <div id="NewEvent" class="w3-container w3-white myLink">
 
                 <h3>Create Event</h3>
 
@@ -86,18 +86,22 @@
                     <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Location of event">
 
                 <div class="w3-container w3-margin-top" style="padding: 0;!important;">
-                    <h6 class="w3-quarter">Event Date:</h6>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay"></select>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectMounth"></select>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear"></select>
+                    <h6 class="w3-third">Event Date:</h6>
+                    <div class="w3-twothird">
+                        <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay"></select>
+                        <select class="w3-select w3-border w3-button w3-half" id ="selectMounth"></select>
+                        <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear"></select>
+                    </div>
                 </div>
+
+
 
                 <div class="w3-margin-top">
                     <h6>Description:</h6>
                     <textarea placeholder="Description"></textarea>
                 </div>
 
-                <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='sendEvent'>Send new event</button>
+                <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='createEvent'>Create new event</button>
             </div>
 
 
@@ -106,24 +110,29 @@
 
                 <h3>Create User</h3>
 
-                <h6 >Event theme:</h6>
-                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Event theme">
-                <h6 >Location of event:</h6>
-                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Location of event">
+                <h6>User name:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="User name">
+                <h6>User lastname:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="User lastname">
+                <h6>User position:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="User position">
+                <h6>Address:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Address">
+                <h6>Phone:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Phone">
+                <h6>E-mail:</h6>
+                <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="E-mail">
 
                 <div class="w3-container w3-margin-top" style="padding: 0;!important;">
-                    <h6 class="w3-quarter">Event Date:</h6>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay"></select>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectMounth"></select>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear"></select>
+                    <h6 class="w3-third">Employment date:</h6>
+                    <div class="w3-twothird">
+                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay1"></select>
+                    <select class="w3-select w3-border w3-button w3-half" id ="selectMounth1"></select>
+                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear1"></select>
+                    </div>
                 </div>
 
-                <div class="w3-margin-top">
-                    <h6>Description:</h6>
-                    <textarea placeholder="Description"></textarea>
-                </div>
-
-                <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='sendEvent'>Send new event</button>
+                <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='createUser'>Create new user</button>
             </div>
 
 
