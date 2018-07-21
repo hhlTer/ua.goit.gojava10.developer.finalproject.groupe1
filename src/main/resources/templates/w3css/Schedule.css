@@ -19,9 +19,8 @@ ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
 .month {
-    padding: 70px 25px;
+    padding: 15px 25px;
     width: 100%;
-    background: #1abc9c;
     text-align: center;
 }
 
@@ -49,7 +48,7 @@ body {font-family: Verdana, sans-serif;}
 
 .weekdays {
     margin: 0;
-    padding: 10px 0;
+    padding: 5px 0;
     background-color: #ddd;
 }
 
@@ -78,7 +77,6 @@ body {font-family: Verdana, sans-serif;}
 
 .days li .active {
     padding: 5px;
-    background: #1abc9c;
     color: white !important
 }
 

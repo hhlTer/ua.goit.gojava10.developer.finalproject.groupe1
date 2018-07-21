@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="w3css/HomeStyle.css">
+<script src="w3js/moderation.js"></script>
 
 <style>
 
@@ -17,8 +18,8 @@
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <div class="w3-white">
-    <img src="w3images/logo.png" style="width:100%">
-        </div>
+        <img src="w3images/logo.png" style="width:100%">
+    </div>
     <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-user w3-xxlarge"></i>
         <p>ABOUT</p>
@@ -59,55 +60,36 @@
 </div>
 
 
-
-
 <!-- Page Content -->
 <div class="w3-padding-large  w3-animate-bottom " id="main">
-    <!-- Page Container -->
-    <div class="w3-content w3-margin-top">
 
-        <!-- The Grid -->
-        <div class="w3-row-padding">
 
-            <!-- Left Column -->
-            <div class="w3-third">
-
-                <div class="w3-white w3-card-4">
-                    <div class="w3-display-container">
-                        <img src="w3images/logo.png" style="width:100%" alt="Avatar">
-                    </div>
-
-                    <div class="w3-container">
-                        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-dark-grey "></i>Designer</p>
-                        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>London, UK</p>
-                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>ex@mail.com</p>
-                        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>1224435534</p>
-                    </div>
-                </div><br>
-
-                <!-- End Left Column -->
+    <!-- Page Content -->
+    <div class="w3-container w3-content  w3-animate-bottom" id="autorization">
+        <div class="w3-display w3-white" >
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button w3-mobile tablink" onclick="openLink(event, 'CreateEvent');"><i class="fa fa-bell w3-margin-right"></i>Create event</button>
+                <button class="w3-bar-item w3-button w3-mobile tablink" onclick="openLink(event, 'NewUser');"><i class="fa fa-address-card w3-margin-right"></i>New user</button>
+                <button class="w3-bar-item w3-button w3-mobile tablink" onclick="openLink(event, 'Moderation');"><i class="fa fa-binoculars w3-margin-right"></i>Moderation</button>
+            </div>
+            <!-- Tabs -->
+            <div id="CreateEvent" class="w3-container w3-white myLink">
+                <h3>Introduce yourself:</h3>
             </div>
 
-            <!-- Right Column -->
-            <div class="w3-twothird">
-
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
-                    <h2 class="w3-text-brown w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-brown"></i>Work Experience</h2>
-                    <div class="w3-container">
-                        <h5 class="w3-text-dark-grey"><b>Front End Developer / w3schools.com</b></h5>
-                        <h6 class="w3-text-brown"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-brown w3-round">Current</span></h6>
-                        <p class="w3-text-gray">Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                        <hr>
-                    </div>
-                </div>
-                <!-- End Right Column -->
+            <div id="NewUser" class="w3-container w3-white myLink"style="display:none">
+                <h3>You are welcome!</h3>
             </div>
 
-            <!-- End Grid -->
+            <div id="Moderation" class="w3-container w3-white myLink"style="display:none">
+                <h3>Hello Boss!</h3>
+            </div>
         </div>
-
-        <!-- End Page Container -->
+        <!-- end Page Content -->
     </div>
+
 </div>
+
+
 </body>
 </html>
