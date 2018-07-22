@@ -30,6 +30,10 @@ public class Employee {
     @OneToOne(fetch = FetchType.EAGER)
     private PassportData passportData;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private WorkPosition workPosition;
+
+
     /**
      * Date format example:
      *
@@ -66,6 +70,31 @@ public class Employee {
 //    private Set<Timetable> timetables;
 
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", photoUri='" + photoUri + '\'' +
+                ", passportData=" + passportData +
+                ", workPosition=" + workPosition +
+                ", bornDate=" + bornDate +
+                ", sex=" + sex +
+                ", salaryPerHour=" + salaryPerHour +
+                ", account=" + account +
+                '}';
+    }
+
+    public WorkPosition getWorkPosition() {
+        return workPosition;
+    }
+
+    public void setWorkPosition(WorkPosition workPosition) {
+        this.workPosition = workPosition;
+    }
 
     public BigDecimal getSalaryPerHour() {
         return salaryPerHour;
@@ -97,23 +126,6 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", photoUri='" + photoUri + '\'' +
-                ", passportData=" + passportData +
-                ", bornDate=" + bornDate +
-                ", sex=" + sex +
-                ", salaryPerHour=" + salaryPerHour +
-                ", account=" + account +
-                '}';
     }
 
     public String getEmail() {

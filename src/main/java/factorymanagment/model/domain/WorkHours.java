@@ -17,6 +17,17 @@ public class WorkHours {
     @Column(name = "finish_time")
     private int finishTime;
 
+    @Column(name = "hours")
+    private int date;
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
+
     public int getWorkHoursId() {
         return workHoursId;
     }
@@ -27,6 +38,16 @@ public class WorkHours {
 
     public int getStartTime() {
         return startTime;
+    }
+
+    @Override
+    public String toString() {
+        return "WorkHours{" +
+                "workHoursId=" + workHoursId +
+                ", startTime=" + startTime +
+                ", finishTime=" + finishTime +
+                ", date=" + date +
+                '}';
     }
 
     public void setStartTime(int startTime) {
@@ -41,12 +62,4 @@ public class WorkHours {
         this.finishTime = finishTime;
     }
 
-    @Override
-    public String toString() {
-        return "WorkHours{" +
-                "workHoursId=" + workHoursId +
-                ", startTime=" + startTime +
-                ", finishTime=" + finishTime +
-                '}';
-    }
 }
