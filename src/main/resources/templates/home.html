@@ -9,15 +9,32 @@
 <link rel="stylesheet" href="w3css/HomeStyle.css">
 
 <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {width: 120px;background: #000;}
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {margin-left: 120px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+        #main {margin-left: 0;}
+        h1{font-size:medium;}
+        .photoUri{ max-width: 300px; max-height: 300px;}
+    }
+    @media only screen and (max-width: 1200px) {
+        h1{font-size:large;}
+    }
 
 </style>
-<body class="w3-black">
+
+<body class="w3-dark-gray">
 
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <div class="w3-white">
-    <img src="w3images/logo.png" style="width:100%">
+    <!--<img src="w3images/logo.png" style="width:100%">-->
+        <img src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%">
         </div>
     <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-user w3-xxlarge"></i>
@@ -58,53 +75,67 @@
     </div>
 </div>
 
-
-
-
 <!-- Page Content -->
 <div class="w3-padding-large  w3-animate-bottom " id="main">
     <!-- Page Container -->
     <div class="w3-content w3-margin-top">
+        <div class="w3-white w3-card-4 ">
+            <header class="w3-container w3-red">
+                <h1 name="Name" class="w3-half" >About</h1>
+            </header>
 
-        <!-- The Grid -->
-        <div class="w3-row-padding">
+            <div class="w3-container w3-white">
+                <div class="w3-display-container w3-third ">
+                    <!--<img src="w3images/logo.png" style="width:100%" alt="Avatar">-->
+                    <img name="photoUri" class="photoUri" src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%; margin: 15% auto;" alt="Avatar">
+                </div>
 
-            <!-- Left Column -->
-            <div class="w3-third">
+                <div class="w3-container w3-twothird ">
 
-                <div class="w3-white w3-card-4">
-                    <div class="w3-display-container">
-                        <img src="w3images/logo.png" style="width:100%" alt="Avatar">
+
+                    <div name="firstName" class="w3-container w3-border-bottom w3-half" >
+                        <p><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>
                     </div>
 
-                    <div class="w3-container">
-                        <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-dark-grey "></i>Designer</p>
-                        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>London, UK</p>
-                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>ex@mail.com</p>
+                    <div name="lastName" class="w3-container w3-border-bottom w3-half" >
+                        <p>Шамбрешейга</p>
+                    </div>
+
+                    <div name="bornDate" class="w3-container w3-border-bottom w3-half" >
+                        <p><i class="fa fa-calendar-check-o w3-margin-right w3-large w3-text-dark-grey"></i>28-12-1288</p>
+                    </div>
+                    <div name="sex" class="w3-container w3-border-bottom w3-half">
+                        <p><i class="fa fa-intersex fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>male</p>
+                    </div>
+
+                    <div name="telephone" class="w3-container w3-border-bottom w3-half">
                         <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>1224435534</p>
                     </div>
-                </div><br>
 
-                <!-- End Left Column -->
-            </div>
-
-            <!-- Right Column -->
-            <div class="w3-twothird">
-
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
-                    <h2 class="w3-text-brown w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-brown"></i>Work Experience</h2>
-                    <div class="w3-container">
-                        <h5 class="w3-text-dark-grey"><b>Front End Developer / w3schools.com</b></h5>
-                        <h6 class="w3-text-brown"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-brown w3-round">Current</span></h6>
-                        <p class="w3-text-gray">Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                        <hr>
+                    <div name="passportData" class="w3-container w3-border-bottom w3-half">
+                        <p><i class="fa fa-address-card fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>GH1234567</p>
                     </div>
+
+                    <div name="email" class="w3-container w3-border-bottom">
+                        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>ex@mail.com</p>
+                    </div>
+
+                    <div name="salaryPerHour" class="w3-container w3-border-bottom">
+                        <p><i class="fa fa-money fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>salaryPerHour</p>
+                    </div>
+
+                    <div name="account" class="w3-container w3-border-bottom">
+                        <p><i class="	fa fa-user-circle fa-fw w3-margin-right w3-large w3-text-dark-grey"></i>account</p>
+                    </div>
+
                 </div>
-                <!-- End Right Column -->
             </div>
 
-            <!-- End Grid -->
+            <footer class="w3-container w3-gray">
+                <h5 name="id"><i class="fa fa-id-badge fa-fw w3-margin-right"></i>id=115522</h5>
+            </footer>
         </div>
+
 
         <!-- End Page Container -->
     </div>

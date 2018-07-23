@@ -1,7 +1,8 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 body{
-    background-image: url("../w3images/london2.jpg");
+    /*background-image: url("../w3images/london2.jpg");*/
+    background: blueviolet;
 }
 
 /*SIGN IN*/

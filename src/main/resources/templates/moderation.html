@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="w3css/moderation.css">
 <script src="w3js/moderation.js"></script>
 
@@ -52,7 +53,7 @@
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="home.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
+        <a id="last-name" name="last_name" href="home.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
         <a href="news.html" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>
         <a href="schedule.html" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
         <a href="moderation.html" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
@@ -153,6 +154,8 @@
                                 <label>НД</label></td>
                         </tr>
                     </table>
+
+
                     <div class="w3-half w3-padding">
                         <h6 >Data start:</h6>
                         <input class="w3-input" type="date" name="bday" max="2018-12-31">
@@ -162,21 +165,91 @@
                         <input class="w3-input" type="date" name="bday" min="2000-01-02">
                     </div>
 
+                    <div class="w3-half w3-padding">
+                        <h6 >Time start:</h6>
+                        <input class="w3-input" type="time" name="usr_time">
+                    </div>
+                    <div class="w3-half w3-padding">
+                        <h6 >Time end:</h6>
+                        <input class="w3-input" type="time" name="usr_time">
+                    </div>
 
 
                 </div>
-                <div class="w3-panel w3-gray">
-                    <p>I am a panel.</p>
-                </div>
-                <div class="w3-panel w3-gray">
-                    <p>I am a panel.</p>
+                <div class="w3-container" style="padding-right: 0;!important;">
+                 <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='setGraphics'>Set Graphics</button>
                 </div>
 
+                <div class="month w3-container w3-brown">
+                    <ul>
+                        <li class="prev">&#10094;</li>
+                        <li class="next">&#10095;</li>
+                        <li> August <span style="font-size:18px">2017</span>
+                        </li>
+                    </ul>
+                </div>
 
-                <h3>Hello Boss!</h3>
+                <ul class="weekdays">
+                    <li>Mo</li>
+                    <li>Tu</li>
+                    <li>We</li>
+                    <li>Th</li>
+                    <li>Fr</li>
+                    <li>Sa</li>
+                    <li>Su</li>
+                </ul>
+
+                <ul class="days">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li><span class="active w3-brown">10</span></li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>16</li>
+                    <li>17</li>
+                    <li>18</li>
+                    <li>19</li>
+                    <li>20</li>
+                    <li>21</li>
+                    <li>22</li>
+                    <li>23</li>
+                    <li>24</li>
+                    <li>25</li>
+                    <li>26</li>
+                    <li>27</li>
+                    <li>28</li>
+                    <li>29</li>
+                    <li>30</li>
+                    <li>31</li>
+                </ul>
+                <br>
+                <!-- End Page Container -->
             </div>
+
+
+
+
+
         </div>
         <!-- end Page Content -->
+
+
+
+
+
+
+
+
     </div>
 
 </div>

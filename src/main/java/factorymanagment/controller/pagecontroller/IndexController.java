@@ -11,6 +11,6 @@ public class IndexController {
     public ModelAndView mainPage(){
         ModelAndView modelAndView = new ModelAndView("sds");
 
-        return new ModelAndView("index1");
+        return new ModelAndView("home");
     }
 }
