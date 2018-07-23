@@ -29,6 +29,7 @@
 </style>
 
 <body class="w3-dark-gray">
+<h6 th:if="${username != null}" th:text="${username}"></h6>
 
  <!--Icon Bar (Sidebar - hidden on small screens)-->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
@@ -60,6 +61,9 @@
     <a href="index1.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-sign-out w3-xxlarge"></i>
         <p>EXIT</p>
+    </a><a href="index1.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+        <i class="fa fa-sign-out w3-xxlarge"></i>
+        <p>EXIT</p>
     </a>
 
 </nav>
@@ -75,6 +79,7 @@
         <a href="index1.html" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
     </div>
 </div>
+
 
 <!-- Page Content -->
 <div class="w3-padding-large  w3-animate-bottom " id="main">
@@ -92,7 +97,6 @@
                 </div>
 
                 <div class="w3-container w3-twothird ">
-
 
                     <div name="firstName" class="w3-container w3-border-bottom w3-half" >
                         <p th:text="${employees.get(1).getFirstName()}"><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>

@@ -23,6 +23,7 @@ public class SecurityService {
         username = user.getUsername();
         ModelAndView modelAndView = new ModelAndView(uri);
         modelAndView.addObject("user", user);
+        modelAndView.addObject("username", user.getUsername());
         modelAndView.addObject("roles", getRolesString(user));
         return modelAndView;
     }

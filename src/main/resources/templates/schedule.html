@@ -7,11 +7,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="w3css/Schedule.css">
-
 <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {width: 120px;background: #333;}
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {margin-left: 120px;
+        padding-top: 16px;
+        padding-bottom: 16px;}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+        #main {margin-left: 0;}
+        h1{font-size:medium;}
+        .photoUri{ max-width: 300px; max-height: 300px;}
+    }
+    @media only screen and (max-width: 1200px) {
+        h1{font-size:large;}
+    }
 
 </style>
-<body class="w3-black">
+<body class="w3-dark-gray">
 
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
@@ -62,10 +78,10 @@
 
 
 <!-- Page Content -->
-<div class="w3-padding-large  w3-animate-bottom " id="main">
+<div class=" w3-animate-bottom " id="main">
     <!-- Page Container -->
             <div class="w3-container">
-                <div class="month w3-brown">
+                <div class="month w3-red">
                     <ul>
                         <li class="prev">&#10094;</li>
                         <li class="next">&#10095;</li>
@@ -96,7 +112,7 @@
                     <li>7</li>
                     <li>8</li>
                     <li>9</li>
-                    <li><span class="active w3-brown">10</span></li>
+                    <li><span class="active w3-blue">10</span></li>
                     <li>11</li>
                     <li>12</li>
                     <li>13</li>
