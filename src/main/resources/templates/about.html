@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="w3css/HomeStyle.css">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
 
 <style>
     body, h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
@@ -29,7 +30,7 @@
 
 <body class="w3-dark-gray">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
+ <!--Icon Bar (Sidebar - hidden on small screens)-->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <div class="w3-white">
@@ -94,7 +95,7 @@
 
 
                     <div name="firstName" class="w3-container w3-border-bottom w3-half" >
-                        <p th:text="${}"><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>
+                        <p th:text="${employees.get(1).getFirstName()}"><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>
                     </div>
 
                     <div name="lastName" class="w3-container w3-border-bottom w3-half" >

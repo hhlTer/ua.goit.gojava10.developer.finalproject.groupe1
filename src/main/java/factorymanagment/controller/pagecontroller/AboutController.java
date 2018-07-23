@@ -17,11 +17,11 @@ public class AboutController {
 
     @GetMapping("/")
     public ModelAndView mainPage(){
-        ModelAndView modelAndView = new ModelAndView("sds");
+        ModelAndView modelAndView = new ModelAndView("about");
 
         List<Employee> employeeList = employeeService.getAllEmpoloyee();
 
         modelAndView.addObject("employees", employeeList);
-        return new ModelAndView("about");
+        return modelAndView;
     }
 }
