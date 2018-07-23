@@ -10,15 +10,19 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class AboutController {
+public class AboutController extends MainController{
 
     @Autowired
     private EmployeeService employeeService;
 
     @GetMapping("/")
     public ModelAndView mainPage(){
-        ModelAndView modelAndView = new ModelAndView("about");
+        ModelAndView modelAndView = securityModelGenerate("about");
 
+        String username = getUserName();
+
+        Employee employee = employeeService.getByUsername(username);
+        System.out.println(employee.getFirstName());
         List<Employee> employeeList = employeeService.getAllEmpoloyee();
 
         modelAndView.addObject("employees", employeeList);

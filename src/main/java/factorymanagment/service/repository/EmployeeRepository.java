@@ -15,4 +15,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     @Query(nativeQuery = true,
     value = "SELECT * FROM employee WHERE salary_per_hour < :questSalary")
     ArrayList<Employee> getPerSalarySmallastThen(@RequestParam("questSalary") BigDecimal sst);
+
+    @Query
+    Employee getByAccount_Login(String login);
 }
