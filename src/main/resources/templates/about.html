@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
     <!--<img src="w3images/logo.png" style="width:100%">-->
         <img src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%">
         </div>
-    <a href="home.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="about.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-user w3-xxlarge"></i>
         <p>ABOUT</p>
     </a>
@@ -66,7 +66,7 @@
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="home.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
+        <a href="about.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
         <a href="news.html" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>
         <a href="schedule.html" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
         <a href="moderation.html" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
@@ -81,7 +81,7 @@
     <div class="w3-content w3-margin-top">
         <div class="w3-white w3-card-4 ">
             <header class="w3-container w3-red">
-                <h1 name="Name" class="w3-half" >About</h1>
+                <h1 class="w3-half" >About</h1>
             </header>
 
             <div class="w3-container w3-white">
@@ -94,7 +94,7 @@
 
 
                     <div name="firstName" class="w3-container w3-border-bottom w3-half" >
-                        <p><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>
+                        <p th:text="${}"><i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey"></i>Олександер</p>
                     </div>
 
                     <div name="lastName" class="w3-container w3-border-bottom w3-half" >
