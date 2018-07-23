@@ -7,22 +7,19 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "timetable")
-public class Timetable {
+@Table(name = "event_schedule")
+public class EventSchedule {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long timetableId;
 
-    @Column(name = "date")
-    private Date date;
+    @OneToOne(cascade = CascadeType.ALL)
+    private DateTable date;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Event event;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Status status;
 
     @OneToOne(cascade = CascadeType.ALL)
     private WorkHours workHours;
@@ -41,11 +38,11 @@ public class Timetable {
         this.timetableId = timetableId;
     }
 
-    public Date getDate() {
+    public DateTable getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(DateTable date) {
         this.date = date;
     }
 
@@ -55,14 +52,6 @@ public class Timetable {
 
     public void setEvent(Event event) {
         this.event = event;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public WorkHours getWorkHours() {
@@ -83,10 +72,9 @@ public class Timetable {
 
     @Override
     public String toString() {
-        return "Timetable{" +
+        return "EventSchedule{" +
                 "date=" + date +
                 ", event=" + event +
-                ", status=" + status +
                 ", workHours=" + workHours +
                 ", employeeSet=" + employeeSet +
                 '}';

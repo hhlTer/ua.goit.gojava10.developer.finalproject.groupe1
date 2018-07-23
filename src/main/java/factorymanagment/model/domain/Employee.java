@@ -63,11 +63,11 @@ public class Employee {
 
 //    @JoinColumn(name = "timetable_id")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Timetable timetable;
+//    private EventSchedule timetable;
 
 //    @JoinColumn(name = "date_event_id")
 //    @OneToMany(fetch = FetchType.EAGER)
-//    private Set<Timetable> timetables;
+//    private Set<EventSchedule> timetables;
 
 
     @Override
@@ -176,11 +176,11 @@ public class Employee {
         this.photoUri = photoUri;
     }
 
-//    public Timetable getTimetable() {
+//    public EventSchedule getTimetable() {
 //        return timetable;
 //    }
 //
-//    public void setTimetable(Timetable timetable) {
+//    public void setTimetable(EventSchedule timetable) {
 //        this.timetable = timetable;
 //    }
 
