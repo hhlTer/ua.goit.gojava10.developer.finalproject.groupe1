@@ -1,5 +1,7 @@
 package factorymanagment.model.domain;
 
+import factorymanagment.service.jpa.DateTableService;
+import org.springframework.beans.factory.annotation.Autowired;
 import sun.java2d.pipe.SpanShapeRenderer;
 
 import javax.persistence.*;
@@ -34,7 +36,7 @@ public class DateTable {
     }
 
     public void setDate(String dateId) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
         try {
             date = format.parse(dateId);

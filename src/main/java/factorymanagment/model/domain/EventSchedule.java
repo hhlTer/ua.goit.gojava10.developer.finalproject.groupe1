@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity
-@Table(name = "event_schedule")
+@Entity(name = "event_schedule")
 public class EventSchedule {
 
     @Id
@@ -24,11 +23,18 @@ public class EventSchedule {
     @OneToOne(cascade = CascadeType.ALL)
     private WorkHours workHours;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "timetable_employee",
-                joinColumns = @JoinColumn(name = "timetable_id"),
-                inverseJoinColumns = @JoinColumn(name = "employee_id"))
-    private Set<Employee> employeeSet;
+    @JoinColumn(name = "employee_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Employee employee;
+
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "event_employee",
+//                joinColumns = @JoinColumn(name = "event_schedule_id"),
+//                inverseJoinColumns = @JoinColumn(name = "employee_id"))
+
+//    @JsonIgnore
+//    @OneToMany (mappedBy = "event_schedule", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    private Set<Employee> employeeSet;
 
     public long getTimetableId() {
         return timetableId;
@@ -62,21 +68,22 @@ public class EventSchedule {
         this.workHours = workHours;
     }
 
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
+//    public Set<Employee> getEmployeeSet() {
+//        return employeeSet;
+//    }
 
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
+//    public void setEmployeeSet(Set<Employee> employeeSet) {
+//        this.employeeSet = employeeSet;
+//    }
 
     @Override
     public String toString() {
         return "EventSchedule{" +
-                "date=" + date +
+                "timetableId=" + timetableId +
+                ", date=" + date +
                 ", event=" + event +
                 ", workHours=" + workHours +
-                ", employeeSet=" + employeeSet +
+//                ", employeeSet=" + employeeSet +
                 '}';
     }
 }

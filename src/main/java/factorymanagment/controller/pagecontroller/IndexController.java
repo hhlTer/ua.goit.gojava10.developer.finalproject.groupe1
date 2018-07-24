@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,6 +26,9 @@ public class IndexController {
 
     private void temp(){
         List<DateTable> list =  dateTableService.getAll();
-        System.out.println(list.get(0).getDateId());
+        list.stream()
+                .map(d -> d.getDate())
+                .forEach(System.out::println);
+        dateTableService.saveAllNewDate();
     }
 }

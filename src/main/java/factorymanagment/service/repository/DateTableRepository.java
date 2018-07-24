@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface DateTableRepository extends JpaRepository<DateTable, String>{
 
+    @Query
+    Set<DateTable> getAllByDateNull();
 }
