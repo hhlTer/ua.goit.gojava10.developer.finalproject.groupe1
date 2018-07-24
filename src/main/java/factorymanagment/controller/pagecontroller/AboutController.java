@@ -1,6 +1,7 @@
 package factorymanagment.controller.pagecontroller;
 
 import factorymanagment.model.domain.Employee;
+import factorymanagment.service.jpa.DateTableService;
 import factorymanagment.service.jpa.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,14 @@ public class AboutController extends MainController{
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private DateTableService dateTableService;
+
     @GetMapping("/")
     public ModelAndView mainPage(){
         ModelAndView modelAndView = securityModelGenerate("about");
+
+        dateTableService.saveAllNewDate();
 
         String username = getUserName();
 
