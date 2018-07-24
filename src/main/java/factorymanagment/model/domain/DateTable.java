@@ -1,9 +1,5 @@
 package factorymanagment.model.domain;
 
-import factorymanagment.service.jpa.DateTableService;
-import org.springframework.beans.factory.annotation.Autowired;
-import sun.java2d.pipe.SpanShapeRenderer;
-
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +37,7 @@ public class DateTable {
         try {
             date = format.parse(dateId);
         } catch (ParseException e) {
-            System.out.println("Wrong date format. Set \"dd/mm/yyyy\"");
+            System.out.println("Wrong date format. Set \"dd/MM/yyyy\"");
             e.printStackTrace();
         }
         this.date = date;
