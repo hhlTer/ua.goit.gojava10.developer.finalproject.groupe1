@@ -1,8 +1,11 @@
 package factorymanagment.model.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity(name = "employee")
 public class Employee {
@@ -61,32 +64,44 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<StatusSchedule> statusScheduleSet;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<EventSchedule> eventScheduleSet;
+
+
+
+    public Set<StatusSchedule> getStatusScheduleSet() {
+        return statusScheduleSet;
+    }
+
+    public void setStatusScheduleSet(Set<StatusSchedule> statusScheduleSet) {
+        this.statusScheduleSet = statusScheduleSet;
+    }
+    //    public EventSchedule getEventSchedule() {
+//        return eventSchedule;
+//    }
+
+//    public void setEventSchedule(EventSchedule eventSchedule) {
+//        this.eventSchedule = eventSchedule;
+//    }
+
+//    @JoinColumn(name = "event_schedule_id")
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private EventSchedule eventSchedule;
+
+
 //    @JoinColumn(name = "timetable_id")
 //    @ManyToOne(fetch = FetchType.EAGER)
-//    private Timetable timetable;
+//    private EventSchedule timetable;
 
 //    @JoinColumn(name = "date_event_id")
 //    @OneToMany(fetch = FetchType.EAGER)
-//    private Set<Timetable> timetables;
+//    private Set<EventSchedule> timetables;
 
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", photoUri='" + photoUri + '\'' +
-                ", passportData=" + passportData +
-                ", workPosition=" + workPosition +
-                ", bornDate=" + bornDate +
-                ", sex=" + sex +
-                ", salaryPerHour=" + salaryPerHour +
-                ", account=" + account +
-                '}';
-    }
 
     public WorkPosition getWorkPosition() {
         return workPosition;
@@ -176,11 +191,11 @@ public class Employee {
         this.photoUri = photoUri;
     }
 
-//    public Timetable getTimetable() {
+//    public EventSchedule getTimetable() {
 //        return timetable;
 //    }
 //
-//    public void setTimetable(Timetable timetable) {
+//    public void setTimetable(EventSchedule timetable) {
 //        this.timetable = timetable;
 //    }
 
@@ -192,4 +207,23 @@ public class Employee {
         this.passportData = passportData;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", photoUri='" + photoUri + '\'' +
+                ", passportData=" + passportData +
+                ", workPosition=" + workPosition +
+                ", bornDate=" + bornDate +
+                ", sex=" + sex +
+                ", salaryPerHour=" + salaryPerHour +
+                ", account=" + account +
+//                ", eventSchedule=" + eventSchedule +
+                ", statusScheduleSet=" + statusScheduleSet +
+                '}';
+    }
 }
