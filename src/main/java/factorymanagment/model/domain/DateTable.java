@@ -1,9 +1,5 @@
 package factorymanagment.model.domain;
 
-import factorymanagment.service.jpa.DateTableService;
-import org.springframework.beans.factory.annotation.Autowired;
-import sun.java2d.pipe.SpanShapeRenderer;
-
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
