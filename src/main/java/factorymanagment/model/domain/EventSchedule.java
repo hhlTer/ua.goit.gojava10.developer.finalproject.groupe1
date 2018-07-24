@@ -6,32 +6,35 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-@Entity
-@Table(name = "timetable")
-public class Timetable {
+@Entity(name = "event_schedule")
+public class EventSchedule {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long timetableId;
 
-    @Column(name = "date")
-    private Date date;
+    @OneToOne(cascade = CascadeType.ALL)
+    private DateTable date;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Event event;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private Status status;
-
-    @OneToOne(cascade = CascadeType.ALL)
     private WorkHours workHours;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "timetable_employee",
-                joinColumns = @JoinColumn(name = "timetable_id"),
-                inverseJoinColumns = @JoinColumn(name = "employee_id"))
-    private Set<Employee> employeeSet;
+    @JoinColumn(name = "employee_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Employee employee;
+
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "event_employee",
+//                joinColumns = @JoinColumn(name = "event_schedule_id"),
+//                inverseJoinColumns = @JoinColumn(name = "employee_id"))
+
+//    @JsonIgnore
+//    @OneToMany (mappedBy = "event_schedule", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    private Set<Employee> employeeSet;
 
     public long getTimetableId() {
         return timetableId;
@@ -41,11 +44,11 @@ public class Timetable {
         this.timetableId = timetableId;
     }
 
-    public Date getDate() {
+    public DateTable getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(DateTable date) {
         this.date = date;
     }
 
@@ -57,14 +60,6 @@ public class Timetable {
         this.event = event;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public WorkHours getWorkHours() {
         return workHours;
     }
@@ -73,22 +68,22 @@ public class Timetable {
         this.workHours = workHours;
     }
 
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
+//    public Set<Employee> getEmployeeSet() {
+//        return employeeSet;
+//    }
 
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
+//    public void setEmployeeSet(Set<Employee> employeeSet) {
+//        this.employeeSet = employeeSet;
+//    }
 
     @Override
     public String toString() {
-        return "Timetable{" +
-                "date=" + date +
+        return "EventSchedule{" +
+                "timetableId=" + timetableId +
+                ", date=" + date +
                 ", event=" + event +
-                ", status=" + status +
                 ", workHours=" + workHours +
-                ", employeeSet=" + employeeSet +
+//                ", employeeSet=" + employeeSet +
                 '}';
     }
 }
