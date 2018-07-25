@@ -69,11 +69,11 @@ VALUES
 
 INSERT INTO work_hours (start_time, finish_time, hours)
 VALUES
-('12:00:00', '20:00:00', '8'),
-('10:00:00', '20:00:00', '10'),
-('08:00:00', '20:00:00', '12'),
-('10:00:00', '12:00:00', '2'),
-('14:00:00', '18:00:00', '4');
+(1, 9, '8'),
+(1, 11, '10'),
+(1, 13, '12'),
+(1, 3, '2'),
+(1, 5, '4');
 
 -- INSERT INTO timetable (date, event_id, status_id, work_hours_id)
 -- VALUES
@@ -139,6 +139,19 @@ INSERT INTO timetable_employee (timetable_id, employee_id) VALUES
   (3, 1),
   (3, 2);
 
+insert into account_role (account_id, role_id) values
+-- (1, 1),
+-- (2, 2),
+(3, 3),
+(4, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3),
+(9, 3),
+(10, 3);
+
+
 INSERT INTO date_table (date_string_id) VALUES
   ('01/07/2018'),
   ('02/07/2018'),
@@ -173,3 +186,4 @@ INSERT INTO date_table (date_string_id) VALUES
   ('31/07/2018'),
   ('01/08/2018'),
   ('02/08/2018');
+

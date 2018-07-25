@@ -1,6 +1,8 @@
 package factorymanagment.controller.pagecontroller;
 
+import factorymanagment.model.domain.Account;
 import factorymanagment.model.domain.Employee;
+import factorymanagment.service.jpa.AccountService;
 import factorymanagment.service.jpa.DateTableService;
 import factorymanagment.service.jpa.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,17 @@ public class AboutController extends MainController{
     @Autowired
     private DateTableService dateTableService;
 
+    @Autowired
+    private AccountService accountService;
+
     @GetMapping("/")
     public ModelAndView mainPage(){
         ModelAndView modelAndView = securityModelGenerate("about");
 
         dateTableService.saveAllNewDate();
+
+        List<Account> accounts = accountService.findAllAccountWithRole("USER");
+        accounts.stream().map(s -> s.getLogin()).forEach(System.out::println);
 
         String username = getUserName();
 
