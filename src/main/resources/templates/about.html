@@ -34,129 +34,131 @@
 
 <body class="w3-dark-gray">
 
-
- <!--Icon Bar (Sidebar - hidden on small screens)-->
+<!--Icon Bar (Sidebar - hidden on small screens)-->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <div class="w3-white">
-    <!--<img src="w3images/logo.png" style="width:100%">-->
         <img src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%">
-        </div>
-    <a href="about.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    </div>
+    <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-user w3-xxlarge"></i>
         <p>ABOUT</p>
     </a>
-    <a href="news.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
-        <i class="fa fa-envelope w3-xxlarge"></i>
-        <p>NEWS</p>
-    </a>
-    <a href="schedule.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <!--<a href="/news" class="w3-bar-item w3-button w3-padding-large w3-hover-red">-->
+    <!--<i class="fa fa-envelope w3-xxlarge"></i>-->
+    <!--<p>NEWS</p>-->
+    <!--</a>-->
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-calendar w3-xxlarge"></i>
         <p>SCHEDULE</p>
     </a>
-    <a href="moderation.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/moderation" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-edit w3-xxlarge"></i>
         <p>MODERATION</p>
     </a>
-    <a href="dashboard.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/dashboard" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-eye w3-xxlarge"></i>
         <p>DASHBOARD</p>
     </a>
-    <a href="index1.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/login" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-sign-out w3-xxlarge"></i>
         <p>EXIT</p>
-
+    </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+<div class="w3-top w3-container w3-hide-large w3-hide-medium" id="myNavbar">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a href="about.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
-        <a href="news.html" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>
-        <a href="schedule.html" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
-        <a href="moderation.html" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
-        <a href="dashboard.html" class="w3-bar-item w3-button w3-hover-red">DASHBOARD</a>
-        <a href="index1.html" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
+        <a href="/about" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
+        <!--<a href="/news" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>-->
+        <a href="/" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
+        <a href="/moderation" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
+        <a href="/dashboard" class="w3-bar-item w3-button w3-hover-red">DASHBOARD</a>
+        <a href="/login" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
     </div>
 </div>
 
 
+
 <!-- Page Content -->
-<div class="w3-padding-large w3-animate-bottom " id="main">
-    <p class="w3-container w3-animate-left w3-dark-gray w3-right-align w3-opacity"
-       style="margin: 0;!important; font-size: small;!important;"
-       th:if="${username != null}" th:text="'You are logged in as a ' + ${username}"></p>
+<div class="w3-padding-large w3-animate-bottom" id="main">
+
+
+
     <!-- Page Container -->
     <div class="w3-content w3-margin-top">
         <div class="w3-white w3-card-4 ">
             <header class="w3-container w3-red">
-                <h1 class="w3-half" >About</h1>
+                <h1 class="w3-half"  th:if="${username != null}" th:text="'About ' + ${username}" >About</h1>
             </header>
 
             <div class="w3-container w3-white">
                 <div class="w3-display-container w3-third ">
                     <!--<img src="w3images/logo.png" style="width:100%" alt="Avatar">-->
                     <img name="photoUri" class="photoUri" src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%; margin: 15% auto;" alt="Avatar">
+                    <!--th:src="@{/about(name=${employees.get(1).getPhotoUri()})}"-->
                 </div>
 
                 <div class="w3-container w3-twothird iconsEmployees ">
 
-                    <div name="firstName" class="w3-container w3-border-bottom w3-half">
+                    <div name="firstName" class="w3-container w3-border-bottom">
                         <i class="fa fa-user w3-margin-right w3-large w3-text-dark-grey w3-col" ></i>
-                        <p class="w3-rest" th:text="'  firstName:  ' + ${employees.get(1).getFirstName()}"></p>
-
-                    </div>
-
-                    <div name="lastName" class="w3-container w3-border-bottom w3-half" >
-                        <p class="w3-rest"  th:text="'lastName: ' + ${employees.get(1).getLastName()}">Шамбрешейга</p>
+                        <p class="w3-rest" th:text="${employees.get(1).getFirstName()}+' ' + ${employees.get(1).getLastName()}"></p>
                     </div>
 
                     <div name="bornDate" class="w3-container w3-border-bottom w3-half" >
                         <i class="fa fa-calendar-check-o w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'bornDate: ' + ${employees.get(1).getBornDate()}">28-12-1288</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).getFormatBornDate()}">28-12-1288</p>
                     </div>
                     <div name="sex" class="w3-container w3-border-bottom w3-half">
                         <i class="fa fa-intersex fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'sex: ' + ${employees.get(1).isSex()}">male</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).isSex()}">male</p>
                     </div>
 
                     <div name="telephone" class="w3-container w3-border-bottom w3-half">
                         <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'tel.: ' + ${employees.get(1).getTelephone()}">1224435534</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).getTelephone()}">1224435534</p>
                     </div>
 
                     <div name="passportData" class="w3-container w3-border-bottom w3-half">
                         <i class="fa fa-address-card fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'passportData: ' + ${employees.get(1).getPassportData()}">GH1234567</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).getPassportData().getPassportNumber()}">GH1234567</p>
                     </div>
 
                     <div name="email" class="w3-container w3-border-bottom">
                         <i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'email: ' + ${employees.get(1).getEmail()}">ex@mail.com</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).getEmail()}">ex@mail.com</p>
                     </div>
 
                     <div name="salaryPerHour" class="w3-container w3-border-bottom">
                         <i class="fa fa-money fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'salaryPerHour: ' + ${employees.get(1).getSalaryPerHour()}">salaryPerHour</p>
+                        <p class="w3-rest"  th:text="${employees.get(1).getSalaryPerHour()} + ' €'">salaryPerHour</p>
                     </div>
 
-                    <div name="account" class="w3-container w3-border-bottom">
-                        <i class="	fa fa-user-circle fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>
-                        <p class="w3-rest"  th:text="'account: ' + ${employees.get(1).getAccount()}">account</p>
-                    </div>
+                    <!--<div name="account" class="w3-container w3-border-bottom">-->
+                        <!--<i class="	fa fa-user-circle fa-fw w3-margin-right w3-large w3-text-dark-grey w3-col"></i>-->
+                        <!--<p class="w3-rest"  th:text="'account: ' + ${employees.get(1).getAccount()}">account</p>-->
+                    <!--</div>-->
 
                 </div>
             </div>
 
             <footer class="w3-container w3-gray">
-                <i class="fa fa-id-badge fa-fw w3-margin-right w3-col" style=" width:16px;padding-top: 16px;"></i>
-                <h5 class="w3-rest" name="id"  th:text="'id: ' + ${employees.get(1).getId()}">id=115522</h5>
+                <div class="w3-right-left w3-half">
+                    <i class="fa fa-id-badge fa-fw w3-margin-right w3-col" style=" width:16px;padding-top: 16px;"></i>
+                    <h5 class="w3-rest" name="id"  th:text="'id: ' + ${employees.get(1).getId()}">id=115522</h5>
+                </div>
+                <p class="w3-right-align w3-half w3-opacity"
+                   th:if="${username != null}" th:text="'You are logged in as a ' + ${username}">
+                </p>
             </footer>
         </div>
 
 
         <!-- End Page Container -->
     </div>
+
+
 </div>
 </body>
 </html>

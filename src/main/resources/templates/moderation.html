@@ -11,57 +11,92 @@
 <script src="w3js/moderation.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<script>// Tabs
+function openLink(evt, linkName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("myLink");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+    }
+    document.getElementById(linkName).style.display = "block";
+    evt.currentTarget.className += " w3-red";
+}
+</script>
 <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {width: 120px;background: #000;}
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {margin-left: 120px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+        #main {margin-left: 0}
 
+    }
+
+
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+    }
 </style>
-<body class="w3-black" onLoad="ComboBoxDate()">
+<body class="w3-dark-gray" onLoad="ComboBoxDate()">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<!--Icon Bar (Sidebar - hidden on small screens)-->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <div class="w3-white">
-        <img src="w3images/logo.png" style="width:100%">
+        <!--<img src="w3images/logo.png" style="width:100%">-->
+        <img src="http://images.vfl.ru/ii/1532287031/8432e900/22585990.png" style="width:100%">
     </div>
-    <a href="about.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-user w3-xxlarge"></i>
         <p>ABOUT</p>
     </a>
-    <a href="news.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
-        <i class="fa fa-envelope w3-xxlarge"></i>
-        <p>NEWS</p>
-    </a>
-    <a href="schedule.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <!--<a href="/news" class="w3-bar-item w3-button w3-padding-large w3-hover-red">-->
+    <!--<i class="fa fa-envelope w3-xxlarge"></i>-->
+    <!--<p>NEWS</p>-->
+    <!--</a>-->
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-calendar w3-xxlarge"></i>
         <p>SCHEDULE</p>
     </a>
-    <a href="moderation.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/moderation" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-edit w3-xxlarge"></i>
         <p>MODERATION</p>
     </a>
-    <a href="dashboard.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/dashboard" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-eye w3-xxlarge"></i>
         <p>DASHBOARD</p>
     </a>
-    <a href="index1.html" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
+    <a href="/login" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
         <i class="fa fa-sign-out w3-xxlarge"></i>
         <p>EXIT</p>
     </a>
-
 </nav>
-
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
     <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <a id="last-name" name="last_name" href="about.html" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
-        <a href="news.html" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>
-        <a href="schedule.html" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
-        <a href="moderation.html" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
-        <a href="dashboard.html" class="w3-bar-item w3-button w3-hover-red">DASHBOARD</a>
-        <a href="index1.html" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
+        <a href="/about" class="w3-bar-item w3-button w3-hover-red" >ABOUT</a>
+        <!--<a href="/news" class="w3-bar-item w3-button w3-hover-red" >NEWS</a>-->
+        <a href="/" class="w3-bar-item w3-button w3-hover-red" >SCHEDULE</a>
+        <a href="/moderation" class="w3-bar-item w3-button w3-hover-red">MODERATION</a>
+        <a href="/dashboard" class="w3-bar-item w3-button w3-hover-red">DASHBOARD</a>
+        <a href="/login" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
     </div>
 </div>
-
 
 <!-- Page Content -->
 <div class="w3-padding-large  w3-animate-bottom " id="main">
@@ -81,18 +116,12 @@
 
                 <h3>Create Event</h3>
 
-                <h6 >Event theme:</h6>
-                    <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Event theme">
-                <h6 >Location of event:</h6>
-                    <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Location of event">
+                <h6>Event theme:</h6>
+                    <input class="w3-input w3-animate-input" type="text" style="width:50%" placeholder="Event theme">
 
                 <div class="w3-container w3-margin-top" style="padding: 0;!important;">
                     <h6 class="w3-third">Event Date:</h6>
-                    <div class="w3-twothird">
-                        <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay"></select>
-                        <select class="w3-select w3-border w3-button w3-half" id ="selectMounth"></select>
-                        <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear"></select>
-                    </div>
+                    <input class="w3-input w3-third" style="max-width:250px" type="date" name="bday" max="2018-12-31">
                 </div>
                 <div class="w3-margin-top">
                     <h6>Description:</h6>
@@ -101,6 +130,8 @@
 
                 <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='createEvent'>Create new event</button>
             </div>
+
+            <!--NewUser-->
             <div id="NewUser" class="w3-container w3-white myLink"style="display:none">
 
                 <h3>Create User</h3>
@@ -120,40 +151,49 @@
 
                 <div class="w3-container w3-margin-top" style="padding: 0;!important;">
                     <h6 class="w3-third">Employment date:</h6>
-                    <div class="w3-twothird">
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectDay1"></select>
-                    <select class="w3-select w3-border w3-button w3-half" id ="selectMounth1"></select>
-                    <select class="w3-select w3-border w3-button w3-quarter" id ="selectYear1"></select>
-                    </div>
+                    <input class="w3-input w3-third" style="max-width:250px" type="date" name="bday" max="2018-12-31">
+                    <!--<div class="w3-twothird">-->
+                    <!--<select class="w3-select w3-border w3-button w3-quarter" id ="selectDay1"></select>-->
+                    <!--<select class="w3-select w3-border w3-button w3-half" id ="selectMounth1"></select>-->
+                    <!--<select class="w3-select w3-border w3-button w3-quarter" id ="selectYear1"></select>-->
+                    <!--</div>-->
                 </div>
 
                 <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='createUser'>Create new user</button>
             </div>
 
-
+            <!--Moderation-->
             <div id="Moderation" class="w3-container w3-white myLink"style="display:none">
                 <div class="w3-panel w3-gray">
                     <h6>Name of emploee:</h6>
-                    <input class="w3-input w3-animate-input" type="text" style="width:200px" placeholder="Insert name of emploee">
+                    <select class="w3-select w3-border w3-button w3-white" id ="selectUser">
+                        <option value="name & lastname">Volvo</option>
+                    </select>
+
+                    <h6>Status:</h6>
+                    <select class="w3-select w3-border w3-button w3-white" id ="selectStatus">
+                        <option class="w3-orange" value="workingDay">Working day</option>
+                        <option class="w3-blue" value="hospital">Hospital</option>
+                        <option class="w3-yellow" value="vacation">Vacation</option>
+                    </select>
+
                     <h6>Days:</h6>
-                    <table class="w3-table">
-                        <tr>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>ПН</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>ВТ</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>СР</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>ЧТ</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>ПТ</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>СБ</label></td>
-                            <td><input class="w3-check" type="checkbox">
-                                <label>НД</label></td>
-                        </tr>
-                    </table>
+                    <div id="days" class="w3-bar w3-gray">
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>ПН</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>ВТ</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>СР</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>ЧТ</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>ПТ</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>СБ</label></div>
+                            <div class="w3-bar-item"><input class="w3-check" type="checkbox">
+                                <label>НД</label></div>
+                    </div>
 
 
                     <div class="w3-half w3-padding">
@@ -177,81 +217,11 @@
 
                 </div>
                 <div class="w3-container" style="padding-right: 0;!important;">
-                 <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='setGraphics'>Set Graphics</button>
+                  <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='setGraphics'>Set Graphics</button>
                 </div>
-
-                <div class="month w3-container w3-brown">
-                    <ul>
-                        <li class="prev">&#10094;</li>
-                        <li class="next">&#10095;</li>
-                        <li> August <span style="font-size:18px">2017</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <ul class="weekdays">
-                    <li>Mo</li>
-                    <li>Tu</li>
-                    <li>We</li>
-                    <li>Th</li>
-                    <li>Fr</li>
-                    <li>Sa</li>
-                    <li>Su</li>
-                </ul>
-
-                <ul class="days">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li><span class="active w3-brown">10</span></li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li>23</li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li>
-                </ul>
-                <br>
-                <!-- End Page Container -->
-            </div>
-
-
-
-
-
         </div>
         <!-- end Page Content -->
-
-
-
-
-
-
-
-
     </div>
-
 </div>
 
 

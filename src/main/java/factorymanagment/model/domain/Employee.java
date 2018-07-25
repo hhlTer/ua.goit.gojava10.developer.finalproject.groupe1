@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -205,6 +206,12 @@ public class Employee {
 
     public void setPassportData(PassportData passportData) {
         this.passportData = passportData;
+    }
+
+    public String getFormatBornDate(){
+        SimpleDateFormat dateFormat = null;
+        dateFormat = new SimpleDateFormat("dd.MM.yyyy ");
+        return dateFormat.format(getBornDate());
     }
 
     @Override

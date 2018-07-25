@@ -7,6 +7,30 @@ import javax.persistence.*;
 @Table(name = "passportData")
 public class PassportData {
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getTaxId() {
+        return taxId;
+    }
+
+    public void setTaxId(long taxId) {
+        this.taxId = taxId;
+    }
+
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
+    }
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
