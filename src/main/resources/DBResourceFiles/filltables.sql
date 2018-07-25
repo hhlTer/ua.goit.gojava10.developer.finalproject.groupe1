@@ -1,6 +1,6 @@
-create database factorymanagment
-character set utf8
-collate utf8_general_ci;
+--create database factorymanagment
+--character set utf8
+--collate utf8_general_ci;
 
 USE factorymanagment;
 
@@ -125,19 +125,19 @@ VALUES
 -- ('2018-08-01', '2', '2', '1'),
 -- ('2018-08-01', '2', '3', '1');
 
-INSERT INTO timetable_employee (timetable_id, employee_id) VALUES
-  (1, 1),
-  (1, 2),
-  (1, 3),
-  (1, 4),
-  (1, 5),
-  (2, 6),
-  (2, 7),
-  (2, 8),
-  (3, 9),
-  (3, 10),
-  (3, 1),
-  (3, 2);
+--INSERT INTO timetable_employee (timetable_id, employee_id) VALUES
+--  (1, 1),
+--  (1, 2),
+--  (1, 3),
+--  (1, 4),
+--  (1, 5),
+--  (2, 6),
+--  (2, 7),
+--  (2, 8),
+--  (3, 9),
+--  (3, 10),
+--  (3, 1),
+--  (3, 2);
 
 insert into account_role (account_id, role_id) values
 -- (1, 1),
