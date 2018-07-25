@@ -14,7 +14,7 @@ public class ScheduleController extends MainController{
 //    @Autowired
 //    private EmployeeService employeeService;
 
-    @GetMapping("/")
+    @GetMapping("/schedule")
     public ModelAndView mainPage() {
         ModelAndView modelAndView = securityModelGenerate("schedule");
 
