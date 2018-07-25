@@ -24,7 +24,7 @@ public class AboutController extends MainController{
     @Autowired
     private AccountService accountService;
 
-    @GetMapping("/")
+    @GetMapping("/about")
     public ModelAndView mainPage(){
         ModelAndView modelAndView = securityModelGenerate("about");
 

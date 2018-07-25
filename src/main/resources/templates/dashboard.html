@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,44 +80,50 @@
 </div>
 
 
-
-<!-- Page Content -->
-<div class="w3-padding-large w3-animate-bottom" id="main">
-
-
-
-    <!-- Page Container -->
-    <div class="w3-content w3-padding-large w3-animate-bottom">
-        <div class="w3-container">
-            <table class="w3-table-all">
-                <thead>
-                <tr class="w3-red">
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Points</th>
-                </tr>
-                </thead>
-                <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Eve</td>
-                    <td>Jackson</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>Adam</td>
-                    <td>Johnson</td>
-                    <td>67</td>
-                </tr>
+        <div class="w3-container w3-animate-bottom w3-padding-16">
+                <table id="myTableId" class="w3-table-all w3-text-black" dt:table="true" style="margin: 0 auto;!important;">
+                    <thead>
+                    <tr class="w3-red">
+                        <th>firstName</th>
+                        <th>lastName</th>
+                        <th>email</th>
+                        <th>telephone</th>
+                        <th>photoUri</th>
+                        <th>passportData</th>
+                        <th>workPosition</th>
+                        <th>bornDate</th>
+                        <th>sex</th>
+                        <th>salaryPerHour</th>
+                        <th>account</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                        <th>ROLE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="person : ${employees}">
+                        <td th:text="${person?.firstName}">Doe</td>
+                        <td th:text="${person?.lastName}">John</td>
+                        <td th:text="${person?.email}"></td>
+                        <td th:text="${person?.telephone}">telephone</td>
+                        <td th:text="${person?.photoUri}">photoUri</td>
+                        <td th:text="${person?.passportData}">passportData</td>
+                        <td th:text="${person?.workPosition}">workPosition</td>
+                        <td th:text="${person?.bornDate}">bornDate</td>
+                        <td th:text="${person?.sex}">sex</td>
+                        <td th:text="${person?.salaryPerHour} + ' €'">salaryPerHour/td>
+                        <td th:text="${person?.account}">account</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
             </table>
         </div>
         <!-- End Page Container -->
-    </div>
 
 
-</div>
+
+
 </body>
 </html>
