@@ -1,6 +1,9 @@
 package factorymanagment.controller.pagecontroller;
 
+import factorymanagment.model.domain.Account;
 import factorymanagment.model.domain.Employee;
+import factorymanagment.model.domain.PassportData;
+import factorymanagment.model.domain.WorkPosition;
 import factorymanagment.service.jpa.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,11 +25,29 @@ public class ModerationController extends MainController{
         return modelAndView;
     }
 
+    @GetMapping("/changeUser")
+    public ModelAndView createPageShow(){
+        ModelAndView modelAndView = securityModelGenerate("testRegisterEmployee");
+        return modelAndView;
+    }
+
+
     @PostMapping("/changeUser")
-    public Employee createOrEditEmployee(@RequestParam int employeeId,
-              @ModelAttribute Employee employee){
+    public String createOrEditEmployee(
+            @RequestParam(required = false, defaultValue = "-1") long employeeId,
+            @ModelAttribute Employee employee,
+//            @ModelAttribute Account account,
+//            @ModelAttribute PassportData passportData,
+            @ModelAttribute WorkPosition workPosition
+    )
+
+    {
         employee.setId(employeeId);
-        return employeeService.save(employee);
+//        employee.setAccount(account);
+//        employee.setPassportData(passportData);
+//        employee.setWorkPosition(workPosition);
+        employeeService.save(employee);
+        return "dashboard";
     }
 
     @PostMapping("/deleteUser")
