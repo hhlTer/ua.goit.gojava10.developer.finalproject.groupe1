@@ -18,9 +18,6 @@ public interface EventScheduleRepository extends JpaRepository<EventSchedule, St
      */
     @Query(nativeQuery = true,
     value = "select * from event_schedule where date_date_string_id = :ds and employee_id = :id")
-//    value = "SELECT from event_schedule es left join date_table dt on " +
-//            "es.date_date_string_id = dt.date_string_id " +
-//            "where d")
     EventSchedule getByDateAndEmployeeId(
             @Param("ds")String date,
             @Param("id") long employee_id);

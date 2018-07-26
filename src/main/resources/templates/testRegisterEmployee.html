@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>New user</title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-light-grey">
+<div class="w3-container w3-red" th:if="${error}">
+    <h3 th:text="${error}">Error</h3>
+</div>
+
+<div class="w3-container">
+    <div class="w3-card w3-white" style="width: 600px; margin: auto; margin-top: 100px;">
+        <div class="w3-container w3-blue"><h3>Sign up</h3></div>
+        <div class="w3-panel w3-padding-16">
+            <form th:action="@{/admin/register}" method="post">
+                <div><label class="w3-green">Account data: </label></div>
+                <div><label> login : <input placeholder="Enter login" class="w3-input w3-border w3-margin-bottom" type="text" name="login"/> </label></div>
+                <div><label> Password: <input placeholder="Password:" class="w3-input w3-border w3-margin-bottom" type="password" name="password"/> </label></div>
+                <div class="w3-container w3-margin">
+                    <input class="w3-radio" type="radio" name="active" value="1" checked>
+                    <label>Active</label>
+
+                    <input class="w3-radio" type="radio" name="active" value="0">
+                    <label>Blocked</label>
+                </div>
+
+                <p></p>
+                <div><label class="w3-red">Employee own data: </label></div>
+                <p></p>
+                <div><label> First Name: <input placeholder="First name:" class="w3-input w3-border w3-margin-bottom" type="text" name="firstName"/> </label></div>
+                <div><label> Last Name: <input placeholder="Last name:" class="w3-input w3-border w3-margin-bottom" type="text" name="lastName"/> </label></div>
+                <div><label> Email: <input placeholder="Email:" class="w3-input w3-input w3-border w3-margin-bottom" type="email" name="email"> </label></div>
+                <div><label> PhotoURI: <input placeholder="Photo:" class="w3-input w3-input w3-border w3-margin-bottom" type="url" name="photoUri"> </label></div>
+                <div><label> Salary: <input placeholder="Salary:" class="w3-input w3-input w3-border w3-margin-bottom" type="text" name="salaryPerHour"> </label></div>
+                <div><label> Telephone: <input placeholder="Telephone:" class="w3-input w3-input w3-border w3-margin-bottom" type="tel" name="telephone"> </label></div>
+                <div><input class="w3-radio" type="radio" name="sex" value="true"><label> Male </label></div>
+                <div><input class="w3-radio" type="radio" name="sex" value="false"><label> Female </label></div>
+                <div><input class="w3-radio" type="radio" name="sex" value="false"><label> Німець </label></div>
+
+                <p></p>
+                <div><label class="w3-blue">Passport data:</label></div>
+                <p></p>
+                <div><label> Num: <input placeholder="Number" class="w3-input w3-border w3-margin-bottom" type="text" name="passportNumber"/> </label></div>
+                <div><label> Tax id: <input placeholder="Tax id" class="w3-input w3-border w3-margin-bottom" type="number" name="taxId"/> </label></div>
+
+                <div class="w3-container w3-margin">
+                    <div class="w3-container"><label>Position</label></div>
+
+                    <input class="w3-radio" type="radio" name="positionName" value="Design" checked>
+                    <label>Design</label>
+
+                    <input class="w3-radio" type="radio" name="positionName" value="Developer">
+                    <label>Developer</label>
+
+                    <input class="w3-radio" type="radio" name="positionName" value="Product owner">
+                    <label>Product owner</label>
+
+                    <input class="w3-radio" type="radio" name="positionName" value="Product manager">
+                    <label>Product manager</label>
+                </div>
+
+
+                <div>
+                    <a href="/login" class="w3-button w3-green">Sign in</a>
+                    <input class="w3-button w3-blue w3-right" type="submit" value="Enter"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
