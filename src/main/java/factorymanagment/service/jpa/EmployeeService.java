@@ -69,4 +69,11 @@ public class EmployeeService {
 //        return employeeRepository.getAllEmployeesFromPeriodWhoHaveStatus(status.getId(), fromDate, toDate);
     }
 
+    public Employee save(Employee employee){
+       return employeeRepository.save(employee);
+    }
+
+    public void delete(String accountLogin) {
+        employeeRepository.deleteEmployeeByAccount_Login(accountLogin);
+    }
 }

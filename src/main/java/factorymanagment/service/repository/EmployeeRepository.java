@@ -54,4 +54,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     List<Employee> getAllByStatusScheduleSetBetweenAndStatusScheduleSet(Date fromDate, Date toDate, long statusId);
 //    List<Employee> getAllEmployeesFromPeriodWhoHaveStatus(int id, Date fromDate, Date toDate);
 
+    @Query
+    Employee save(Employee employee);
+
+    @Query
+    void deleteEmployeeByAccount_Login(String accountLogin);
 }
