@@ -214,6 +214,13 @@ public class Employee {
         return dateFormat.format(getBornDate());
     }
 
+    public String getFormatSex(){
+        if (isSex()) return "male";
+        else return "female";
+    }
+
+
+
     @Override
     public String toString() {
         return "Employee{" +

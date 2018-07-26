@@ -88,16 +88,16 @@
                         <th>lastName</th>
                         <th>email</th>
                         <th>telephone</th>
-                        <th>photoUri</th>
+                        <!--<th>photoUri</th>-->
                         <th>passportData</th>
                         <th>workPosition</th>
                         <th>bornDate</th>
                         <th>sex</th>
                         <th>salaryPerHour</th>
-                        <th>account</th>
+                        <!--<th>account</th>-->
                         <th>EDIT</th>
                         <th>DELETE</th>
-                        <th>ROLE</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -106,16 +106,18 @@
                         <td th:text="${person?.lastName}">John</td>
                         <td th:text="${person?.email}"></td>
                         <td th:text="${person?.telephone}">telephone</td>
-                        <td th:text="${person?.photoUri}">photoUri</td>
-                        <td th:text="${person?.passportData}">passportData</td>
-                        <td th:text="${person?.workPosition}">workPosition</td>
-                        <td th:text="${person?.bornDate}">bornDate</td>
-                        <td th:text="${person?.sex}">sex</td>
+                        <!--<td th:text="${person?.photoUri}">photoUri</td>-->
+
+                        <td th:text="${person?.getPassportData().getPassportNumber()}">passportData</td>
+                        <td th:text="${person?.getWorkPosition().getPositionName()}">workPosition</td>
+                        <td th:text="${person?.getFormatBornDate()}">bornDate</td>
+                        <td th:text="${person?.getFormatSex()}">sex</td>
                         <td th:text="${person?.salaryPerHour} + ' €'">salaryPerHour/td>
-                        <td th:text="${person?.account}">account</td>
+
+                        <!--<td th:text="${person?.account}">account</td>-->
+                        <td>  <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='setGraphics'>Set Graphics</button></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
+
                     </tr>
                     </tbody>
             </table>
