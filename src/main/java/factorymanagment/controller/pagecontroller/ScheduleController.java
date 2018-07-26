@@ -5,6 +5,7 @@ import factorymanagment.model.domain.DateTable;
 import factorymanagment.model.secondDomain.CalendarToOut;
 import factorymanagment.model.secondDomain.Period;
 import factorymanagment.service.adittionalmodelservice.CalendarToOutService;
+import factorymanagment.service.jpa.AccountService;
 import factorymanagment.service.jpa.DateTableService;
 import factorymanagment.service.jpa.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -47,6 +46,13 @@ public class ScheduleController extends MainController{
                     System.out.println(dt.getDateId() + ": " + calendarToOutHashMap.get(dt.getDate()).getEvent());
             }
         }
+
+        Set<Date> dateSet = calendarToOutHashMap.keySet();
+        List<Date> list = new ArrayList<>(dateSet);
+
+        calendarToOutHashMap.get(list.get(0));
+        modelAndView.addObject("setDate", dateSet);
+        modelAndView.addObject("calendar", calendarToOutHashMap);
         return modelAndView;
     }
 }
