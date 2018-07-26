@@ -13,7 +13,7 @@ public class FillDBWithDate {
 
     private static String URL = "jdbc:mysql://localhost:3306/factorymanagment";
     private static String USER = "root";
-    private static String PASSWORD = "admin12345";
+    private static String PASSWORD = "root1";
 
 
     public static void main(String[] args) {
