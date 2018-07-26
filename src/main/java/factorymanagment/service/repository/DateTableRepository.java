@@ -14,4 +14,6 @@ public interface DateTableRepository extends JpaRepository<DateTable, String>{
 
     @Query
     Set<DateTable> getAllByDateNull();
+
+    List<DateTable> getAllByDateBetween(Date fromDate, Date toDate);
 }

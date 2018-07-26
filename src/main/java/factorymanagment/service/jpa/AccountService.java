@@ -1,12 +1,17 @@
 package factorymanagment.service.jpa;
 
 import factorymanagment.model.domain.Account;
+import factorymanagment.model.domain.Employee;
+import factorymanagment.model.domain.Event;
 import factorymanagment.model.domain.Role;
 import factorymanagment.service.repository.AccountRepository;
 import factorymanagment.service.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,4 +35,6 @@ public class AccountService {
 
         return accountRepository.findAllUsersByRoleId(role1.getRoleId());
     }
+
 }
+
