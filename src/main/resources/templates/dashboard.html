@@ -21,14 +21,86 @@
         width:16px;padding-top: 16px;
     }
 
+    #emailBR{ word-break: break-all;}
+
+
     /* Remove margins from "page content" on small screens */
     @media only screen and (max-width: 600px) {
         #main {margin-left: 0;}
         h1{font-size:medium;}
         .photoUri{ max-width: 300px; max-height: 300px;}
+        /*td{font-size: x-small;}*/
     }
     @media only screen and (max-width: 1200px) {
         h1{font-size:large;}
+        /*td{font-size: small;}*/
+    }
+
+    @media
+    only screen
+    and (max-width: 760px), (min-device-width: 760px)
+    and (max-device-width: 1024px)  {
+
+     table, thead, tbody, th, td, tr {
+            display: block;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin: 0 0 1rem 0;
+        }
+
+        tr:nth-child(odd) {
+            background: #ccc;
+        }
+
+        td {
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30%;
+        }
+
+        td:before {
+            position: absolute;
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        td:nth-of-type(1):before { content: "First Name"; }
+        td:nth-of-type(2):before { content: "Last Name"; }
+        td:nth-of-type(3):before { content: "Email"; }
+        td:nth-of-type(4):before { content: "Telephone"; }
+        td:nth-of-type(5):before { content: "Passport data"; }
+        td:nth-of-type(6):before { content: "Work position"; }
+        td:nth-of-type(7):before { content: "Date of Birth"; }
+        td:nth-of-type(8):before { content: "Sex"; }
+        td:nth-of-type(9):before { content: "Salary per hour"; }
+        td:nth-of-type(10):before { content: "Edit"; }
+        td:nth-of-type(11):before { content: "Delete"; }
+    }
+    @media
+    only screen
+    and (max-width: 522px), (min-device-width: 522px)
+    and (max-device-width: 724px)  {
+        table{width: 100%;}
+        td {
+            padding-left: 130px;
+            word-break:normal;
+        }
+        td:before {
+           min-width: 200px;
+            word-break:normal;
+        }
+        #emailBR{ word-break:normal;}
+
     }
 
 </style>
@@ -78,53 +150,91 @@
         <a href="/login" class="w3-bar-item w3-button w3-hover-red">EXIT</a>
     </div>
 </div>
+<!-- Page Content -->
+<div class="w3-padding-large w3-animate-bottom" id="main">
 
 
-        <div class="w3-container w3-animate-bottom w3-padding-16">
-                <table id="myTableId" class="w3-table-all w3-text-black" dt:table="true" style="margin: 0 auto;!important;">
-                    <thead>
-                    <tr class="w3-red">
-                        <th>firstName</th>
-                        <th>lastName</th>
-                        <th>email</th>
-                        <th>telephone</th>
-                        <!--<th>photoUri</th>-->
-                        <th>passportData</th>
-                        <th>workPosition</th>
-                        <th>bornDate</th>
-                        <th>sex</th>
-                        <th>salaryPerHour</th>
-                        <!--<th>account</th>-->
-                        <th>EDIT</th>
-                        <th>DELETE</th>
 
-                    </tr>
+        <div class="w3-container w3-animate-bottom w3-padding-16 w3-white">
+                <table id="myTableId" class="w3-striped w3-card-4" role="table" dt:table="true">
+                    <thead role="rowgroup">
+                        <tr role="row"  class="w3-red">
+                            <th role="columnheader">First name</th>
+                            <th role="columnheader">Last name</th>
+                            <th role="columnheader" style="min-width: 70px">Email</th>
+                            <th role="columnheader">Telephone</th>
+                            <!--<th role="columnheader">photoUri</th>-->
+                            <th role="columnheader">Passport</th>
+                            <th role="columnheader">Position</th>
+                            <th role="columnheader">Born date</th>
+                            <th role="columnheader">Sex</th>
+                            <th role="columnheader" style="min-width: 60px">Salary</th>
+                            <!--<th role="columnheader">account</th>-->
+                            <th role="columnheader">Edit</th>
+                            <th role="columnheader">Delete</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                    <tr th:each="person : ${employees}">
-                        <td th:text="${person?.firstName}">Doe</td>
-                        <td th:text="${person?.lastName}">John</td>
-                        <td th:text="${person?.email}"></td>
-                        <td th:text="${person?.telephone}">telephone</td>
-                        <!--<td th:text="${person?.photoUri}">photoUri</td>-->
+                    <tbody role="rowgroup">
+                        <tr role="row" th:each="person : ${employees}">
+                            <td role="cell" th:text="${person?.firstName}"></td>
+                            <td role="cell" th:text="${person?.lastName}"></td>
+                            <td role="cell" id="emailBR" th:text="${person?.email}"></td>
+                            <td role="cell" th:text="${person?.telephone}"></td>
+                            <!--<td role="cell" th:text="${person?.photoUri}">photoUri</td>-->
+                            <td role="cell" th:text="${person?.getPassportData().getPassportNumber()}"></td>
+                            <td role="cell" th:text="${person?.getWorkPosition().getPositionName()}"></td>
+                            <td role="cell" th:text="${person?.getFormatBornDate()}"></td>
+                            <td role="cell" th:text="${person?.getFormatSex()}"></td>
+                            <td role="cell" th:text="${person?.salaryPerHour} + '€'"></td>
 
-                        <td th:text="${person?.getPassportData().getPassportNumber()}">passportData</td>
-                        <td th:text="${person?.getWorkPosition().getPositionName()}">workPosition</td>
-                        <td th:text="${person?.getFormatBornDate()}">bornDate</td>
-                        <td th:text="${person?.getFormatSex()}">sex</td>
-                        <td th:text="${person?.salaryPerHour} + ' €'">salaryPerHour/td>
+                            <!--<td role="cell" th:text="${person?.account}">account</td>-->
+                            <td role="cell">
+                                <button class="w3-button w3-dark-grey w3-hover-red" style="width:50px;" onclick="document.getElementById('id01').style.display='block'" ><i class="fa fa-edit"></i></button></td>
 
-                        <!--<td th:text="${person?.account}">account</td>-->
-                        <td>  <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='setGraphics'>Set Graphics</button></td>
-                        <td></td>
+                            <td role="cell">
+                                <button class="w3-button w3-dark-grey w3-hover-red" style="width:50px;" onclick="document.getElementById('id02').style.display='block'"><i class="fa fa-trash"></i></button></td>
 
-                    </tr>
+                            <div id="id01" class="w3-modal">
+                                <div class="w3-modal-content">
+                                    <div class="w3-container">
+                                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
+                                        <div  class="w3-container w3-white">
+
+                                            <h3>Edit User</h3>
+
+                                            <h6>User name:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px"  th:text="${person?.firstName}">
+                                            <h6>User lastname:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px" th:text="${person?.lastName}">
+                                            <h6>User workPosition:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px" th:text="${person?.getWorkPosition().getPositionName()}">
+                                            <h6>Address:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px" th:text="${person?.telephone}">
+                                            <h6>Phone:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px" th:text="${person?.getPassportData().getPassportNumber()}">
+                                            <h6>E-mail:</h6>
+                                            <input class="w3-input w3-animate-input" type="text" style="width:200px" th:text="${person?.getWorkPosition().getPositionName()}">
+
+                                            <div class="w3-container w3-margin-top" style="padding: 0;!important;">
+                                                <h6 class="w3-third">Employment date:</h6>
+                                                <input class="w3-input w3-third" style="max-width:250px" type="date" name="bday" max="2018-12-31">
+                                            </div>
+
+                                            <button class="w3-button w3-dark-grey w3-right signIn w3-margin-bottom" type='submit' id='createUser'>Edit user</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
                     </tbody>
             </table>
         </div>
         <!-- End Page Container -->
 
-
+</div>
 
 
 </body>
