@@ -48,10 +48,12 @@ public class ScheduleController extends MainController{
         }
 
         Set<Date> dateSet = calendarToOutHashMap.keySet();
-        List<Date> list = new ArrayList<>(dateSet);
+        List<Date> listDate = new ArrayList<>(dateSet);
 
-        calendarToOutHashMap.get(list.get(0));
-        modelAndView.addObject("setDate", dateSet);
+        calendarToOutHashMap.get(listDate.get(0));
+
+        modelAndView.addObject("listDate", listDate);
+
         modelAndView.addObject("calendar", calendarToOutHashMap);
         return modelAndView;
     }
