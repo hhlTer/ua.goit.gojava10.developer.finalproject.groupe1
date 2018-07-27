@@ -31,10 +31,10 @@ public class Employee {
     @Column(name = "photoUri")
     private String photoUri;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     private PassportData passportData;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     private WorkPosition workPosition;
 
 
