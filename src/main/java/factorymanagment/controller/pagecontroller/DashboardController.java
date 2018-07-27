@@ -38,7 +38,7 @@ public class DashboardController extends MainController{
 
         String username = getUserName();
 
-        Employee employee = employeeService.getByUsername(username);
+        Employee employee = employeeService.getByAccountUserName(username);
         System.out.println(employee.getFirstName());
         List<Employee> employeeList = employeeService.getAllEmpoloyee();
 

@@ -27,7 +27,7 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee getByUsername(String username) {
+    public Employee getByAccountUserName(String username) {
         return employeeRepository.getByAccount_Login(username);
     }
 

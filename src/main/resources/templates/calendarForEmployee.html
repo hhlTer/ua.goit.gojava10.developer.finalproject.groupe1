@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<body>
+<div class="w3-container w3-grey w3-margin">
+
+    <a
+            th:if="${month > 0}"
+            th:href="@{/(employeeIdId = ${employeeId}, month = ${month - 1}, year = ${year})}"
+            class="w3-button w3-left w3-blue w3-margin-top">
+        Previous
+    </a>
+    <a
+            th:if="${month < 12}"
+            th:href="@{/(employeeIdId = ${employeeId}, month = ${month - 1}, year = ${year})}"
+            class = "w3-button w3-right w3-blue w3-margin-top">
+        Next
+    </a>
+
+    <div class="w3-container">
+        <div class="w3-container w3-section w3-light-grey w3-margin">
+            <table class="w3-table w3-striped w3-bordered w3-border">
+                <tr>
+                    <th>Date</th>
+                    <!--<th>Status</th>-->
+                    <th>Event</th>
+                    <th>Work from</th>
+                    <th>Work to</th>
+                </tr>
+                <tr th:each="d : ${dateList}">
+                    <h1 th:if="${schedule.get(d.getDate()) != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></h1>
+                    <td th:text="${d.getDate()}"></td>
+                    <!--<td th:if="${schedule.get(d).getStatus() != null}" th:text="${schedule.get(d).getStatus().getStatusName()}"></td>-->
+                    <td th:if="${schedule.get(d.getDate()) != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getStartTime()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getFinishTime()}"></td>
+                </tr>
+                <!--<a th:href="@{/admin/product/edit(productId=${product.getId()})}" class="w3-button w3-margin">Edit</a>-->
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
