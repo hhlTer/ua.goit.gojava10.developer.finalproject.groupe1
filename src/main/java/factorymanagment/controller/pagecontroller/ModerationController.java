@@ -35,15 +35,16 @@ public class ModerationController extends MainController{
     @PostMapping("/changeUser")
     public String createOrEditEmployee(
             @RequestParam(required = false, defaultValue = "-1") long employeeId,
+//            @RequestParam(required = false) String bornDate,
             @ModelAttribute Employee employee,
-//            @ModelAttribute Account account,
+            @ModelAttribute Account account
 //            @ModelAttribute PassportData passportData,
-            @ModelAttribute WorkPosition workPosition
+//            @ModelAttribute WorkPosition workPosition
     )
 
     {
         employee.setId(employeeId);
-//        employee.setAccount(account);
+        employee.setAccount(account);
 //        employee.setPassportData(passportData);
 //        employee.setWorkPosition(workPosition);
         employeeService.save(employee);
