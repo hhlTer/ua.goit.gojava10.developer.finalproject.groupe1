@@ -13,12 +13,17 @@ public class FillDBWithDate {
 
     private static String URL = "jdbc:mysql://localhost:3306/factorymanagment";
     private static String USER = "root";
-    private static String PASSWORD = "root1";
+    private static String PASSWORD = "admin12345";
 
 
     public static void main(String[] args) {
-        initDBConnectionAndFillDB();
+
+
+
+
     }
+
+    //====================== Fill DB with Date ================
 
     public static void initDBConnectionAndFillDB() {
 
@@ -135,6 +140,103 @@ public class FillDBWithDate {
         }
 
         return daysArray;
+    }
+
+
+    //====================== Fill work_hours for Admin ================
+
+
+    private static void fillWork_hoursForYear() {
+
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            connection = DriverManager
+                    .getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+
+            for (int i = 1; i <= 365; i++) {
+                statement.execute("insert into work_hours(hours, finish_time, start_time) VALUES " +
+                        "(8,16,8)");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    //====================== Fill Event Schedule for Admin ================
+
+    private static void fillEventScheduleForEmployeeId(int eId) {
+
+        Connection connection = null;
+        Statement statement = null;
+        ArrayList<String> calender = buildCalender();
+        Collections.sort(calender);
+
+        try {
+            connection = DriverManager
+                    .getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+
+            int i = 1;
+
+            for (String day : calender) {
+
+                statement.execute("insert into event_schedule (date_date_string_id,employee_id, work_hours_id) " +
+                        "VALUES('" + day + "','" + eId + "','" + i + "')");
+                i++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //====================== Fill Status Schedule for Admin ================
+
+    private static void fillStatusScheduleForEmployeeId(int id) {
+        Connection connection = null;
+        Statement statement = null;
+        ArrayList<String> calender = buildCalender();
+        Collections.sort(calender);
+
+        try {
+            connection = DriverManager
+                    .getConnection(URL, USER, PASSWORD);
+            statement = connection.createStatement();
+
+            for (String day : calender) {
+                statement.execute("insert into status_schedule (date_date_string_id, employee_id, status_id)" +
+                        " VALUES('" + day + "','" + id + "','" + 1 + "')");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
 
