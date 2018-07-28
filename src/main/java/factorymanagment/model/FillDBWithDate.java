@@ -23,7 +23,7 @@ public class FillDBWithDate {
 
     }
 
-    //====================== Fill DB with Date ================
+    //====================== Fill Date_Table with Date ================
 
     public static void initDBConnectionAndFillDB() {
 
@@ -224,7 +224,7 @@ public class FillDBWithDate {
 
             for (String day : calender) {
                 statement.execute("insert into status_schedule (date_date_string_id, employee_id, status_id)" +
-                        " VALUES('" + day + "','" + id + "','" + 1 + "')");
+                        " VALUES('" + day + "','" + id + "','" + 2 + "')");
             }
 
         } catch (SQLException e) {
