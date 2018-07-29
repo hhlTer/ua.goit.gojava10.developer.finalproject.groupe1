@@ -18,9 +18,14 @@ public class FillDBWithDate {
 
     public static void main(String[] args) {
 
+        //1   initDBConnectionAndFillDB();
+
+        //2   fillWork_hoursForYear();
+
+        //3   fillEventScheduleForEmployeeId(1);
 
 
-
+        //4   fillStatusScheduleForEmployeeId(1);
     }
 
     //====================== Fill Date_Table with Date ================
