@@ -44,6 +44,12 @@ public class ScheduleController extends MainController{
             employeeId = employee.getId();
         }
 
+        if (month == -1){
+            month = period.getFromMonth();
+        }
+        if (year == -1){
+            year = period.getFromYear();
+        }
 
         /**
          * get only exists date in date table from current year;
@@ -80,9 +86,10 @@ public class ScheduleController extends MainController{
         return String.format("%d/%d/%d", d, m, y);
     }
 
-    private long detectMonth() {
+    private long detectCurrentMonth() {
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
         return calendar.get(Calendar.MONTH);
     }
 
