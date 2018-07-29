@@ -45,7 +45,7 @@
         Previous
     </a>
     <a
-            th:if="${month < 12}"
+            th:if="${month < 11}"
             th:href="@{/(employeeIdId = ${employeeId}, month = ${month + 1}, year = ${year})}"
             class = "w3-button w3-right w3-blue w3-margin-top">
         Next
@@ -56,14 +56,14 @@
             <table class="w3-table w3-striped w3-bordered w3-border">
                 <tr>
                     <th>Date</th>
-                    <!--<th>Status</th>-->
+                    <th>Status</th>
                     <th>Event</th>
                     <th>Work from</th>
                     <th>Work to</th>
                 </tr>
                 <tr th:each="d : ${dateList}">
                     <td th:text="${d.getDateId()}"></td>
-                    <!--<td th:if="${schedule.get(d).getStatus() != null}" th:text="${schedule.get(d).getStatus().getStatusName()}"></td>-->
+                    <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getStatus() != null}" th:text="${schedule.get(d.getDate()).getStatus().getStatusName()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getEvent() != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getStartTime()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getFinishTime()}"></td>
