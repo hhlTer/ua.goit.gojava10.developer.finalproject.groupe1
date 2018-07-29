@@ -57,7 +57,7 @@ public class ScheduleController extends MainController{
         List<DateTable> dateList = dateTableService.getByPeriod(period);
         HashMap<Date, CalendarToOut> calendarMap = calendarToOutService.getCalendarToOut(period, employeeId);
 
-        sysoutCalendar(dateList, calendarMap);
+//        sysoutCalendar(dateList, calendarMap);
 
         modelAndView.addObject("employeeId", employeeId);
         modelAndView.addObject("month", month);
