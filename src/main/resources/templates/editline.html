@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit day</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Schedule</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="w3css/Style.css">-->
+
+    <!--_________________________________________________________________________________________________________________
+        *****************************************************************************************************************
+            Стилі Style.css
+        *****************************************************************************************************************
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -->
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif;}
+    </style>
+    <!--*****************************************************************************************************************
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -->
+</head>
+
+<body>
+<!--//Menu bar-->
+<div th:replace="fragments/menu.html :: top_menu"/>
+
+<!--<div class="w3-container w3-grey w3-margin">-->
+<div class="w3-container w3-animate-bottom">
+    <div class="w3-card w3-white " style="max-width: 600px; margin: auto; margin-top: 10px;">
+        <div class="w3-container w3-black"><h3> <i class="w3-margin-right"></i>Schedule list</h3></div>
+        <div class="w3-container">
+            <div class="w3-container w3-section w3-light-grey w3-margin">
+                <label th:text="${scheduleLine.getDateTable().getDateId()"></label>
+                <label>Status: </label>
+                <select  name="status">
+                    <option th:each="st : ${scheduleLine.getStatus()}">
+                        <p th:text="${st.getId() + ' ' +  st.getStatusName()}" th:default="${st.getStatus().getId()}"></p>
+                    </option>
+                </select>
+                <select  name="event">
+                    <option th:each="st : ${scheduleLine.getStatus()}">
+                        <p th:text="${st.getId() + ' ' +  st.getStatusName()}" th:default="${st.getStatus().getId()}"></p>
+                    </option>
+                </select>
+                <select  name="status">
+                    <option th:each="st : ${scheduleLine.getStatus()}">
+                        <p th:text="${st.getId() + ' ' +  st.getStatusName()}" th:default="${st.getStatus().getId()}"></p>
+                    </option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

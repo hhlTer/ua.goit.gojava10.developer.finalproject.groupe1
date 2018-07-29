@@ -64,11 +64,19 @@
                 <tr th:each="d : ${dateList}">
                     <td th:text="${d.getDateId()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getStatus() != null}" th:text="${schedule.get(d.getDate()).getStatus().getStatusName()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) == null || schedule.get(d.getDate()).getStatus() == null}" th:text="'Not set'"></td>
+
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getEvent() != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) == null || schedule.get(d.getDate()).getEvent() == null}" th:text="'Not set'"></td>
+
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getStartTime()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) == null || schedule.get(d.getDate()).getWorkHours() == null}" th:text="'Not set'"></td>
+
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getFinishTime()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) == null || schedule.get(d.getDate()).getWorkHours() == null}" th:text="'Not set'"></td>
+
+                    <td th:if="${roles == 'ADMIN'}" th:href="@{/admin/schedule/edit(employeeId=${employeeId}, scheduleLine = schedule.get(d.getDate()))}" class="w3-button w3-margin w3-green">Edit</td>>
                 </tr>
-                <a th:if="role='ADMIN'" th:href="@{/admin/schedule/edit(employeeId=${employeeId})}" class="w3-button w3-margin">Edit</a>
             </table>
         </div>
     </div>
