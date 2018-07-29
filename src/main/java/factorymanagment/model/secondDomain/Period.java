@@ -6,10 +6,21 @@ import java.util.Date;
 
 public class Period {
 
+    private final int countDays = 0;
+    private final int countMonth = 1;
+    private final int countYear = 2;
+
     private Date fromDate;
     private Date toDate;
     private String stringFromDate;
     private String stringToDate;
+
+    private int fromMonth;
+    private int toMonth;
+    private int fromYear;
+    private int toYear;
+    private int fromDay;
+    private int toDay;
 
     public Period(){};
     public Period(String stringFromDate, String stringToDate){
@@ -119,5 +130,77 @@ public class Period {
             e.printStackTrace();
         }
         this.stringToDate = stringToDate;
+    }
+
+    public int getFromMonth() {
+        if (stringFromDate != null){
+            return Integer.parseInt(getData(stringFromDate, countMonth));
+        }
+        return fromMonth;
+    }
+
+
+    public void setFromMonth(int fromMonth) {
+        this.fromMonth = fromMonth;
+    }
+
+    public int getToMonth() {
+        if (stringToDate != null){
+            return Integer.parseInt(getData(stringToDate, countMonth));
+        }
+        return toMonth;
+    }
+
+    public void setToMonth(int toMonth) {
+        this.toMonth = toMonth;
+    }
+
+    public int getFromYear() {
+        if (stringFromDate != null){
+            return Integer.parseInt(getData(stringFromDate, countYear));
+        }
+        return fromYear;
+    }
+
+    public void setFromYear(int fromYear) {
+        this.fromYear = fromYear;
+    }
+
+    public int getToYear() {
+        if (stringToDate != null){
+            return Integer.parseInt(getData(stringFromDate, countYear));
+        }
+        return toYear;
+    }
+
+    public void setToYear(int toYear) {
+        this.toYear = toYear;
+    }
+
+    public int getFromDay() {
+        if (stringFromDate != null){
+            return Integer.parseInt(getData(stringFromDate, countDays));
+        }
+        return fromDay;
+    }
+
+    public void setFromDay(int fromDay) {
+        this.fromDay = fromDay;
+    }
+
+    public int getToDay() {
+        if (stringToDate != null){
+            return Integer.parseInt(getData(stringToDate, countDays));
+        }
+        return toDay;
+    }
+
+    public void setToDay(int toDay) {
+        this.toDay = toDay;
+    }
+
+    private String getData(String stringDate, int countDays) {
+        String[] a = stringDate.split("/");
+        return a[countDays];
     }
 }
