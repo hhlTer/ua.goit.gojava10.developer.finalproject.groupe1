@@ -68,7 +68,7 @@
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getStartTime()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getFinishTime()}"></td>
                 </tr>
-                <!--<a th:href="@{/admin/product/edit(productId=${product.getId()})}" class="w3-button w3-margin">Edit</a>-->
+                <a th:if="role='ADMIN'" th:href="@{/admin/schedule/edit(employeeId=${employeeId})}" class="w3-button w3-margin">Edit</a>
             </table>
         </div>
     </div>
