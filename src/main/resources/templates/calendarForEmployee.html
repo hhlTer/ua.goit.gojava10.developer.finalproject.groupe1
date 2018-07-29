@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Schedule</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Schedule</title>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 
+<!--</head>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Schedule</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="w3css/Style.css">-->
+
+    <!--_________________________________________________________________________________________________________________
+        *****************************************************************************************************************
+            Стилі Style.css
+        *****************************************************************************************************************
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -->
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif;}
+    </style>
+    <!--*****************************************************************************************************************
+        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ -->
 </head>
 
 <body>
-<div class="w3-container w3-grey w3-margin">
+<!--//Menu bar-->
+<div th:replace="fragments/menu.html :: top_menu"/>
 
+<!--<div class="w3-container w3-grey w3-margin">-->
+<div class="w3-container w3-animate-bottom">
+    <div class="w3-card w3-white " style="max-width: 600px; margin: auto; margin-top: 10px;">
+        <div class="w3-container w3-black"><h3> <i class="w3-margin-right"></i>Schedule list</h3></div>
+        <!--inset-->
     <a
             th:if="${month > 0}"
             th:href="@{/(employeeIdId = ${employeeId}, month = ${month - 1}, year = ${year})}"
@@ -19,7 +46,7 @@
     </a>
     <a
             th:if="${month < 12}"
-            th:href="@{/(employeeIdId = ${employeeId}, month = ${month - 1}, year = ${year})}"
+            th:href="@{/(employeeIdId = ${employeeId}, month = ${month + 1}, year = ${year})}"
             class = "w3-button w3-right w3-blue w3-margin-top">
         Next
     </a>
@@ -36,9 +63,9 @@
                 </tr>
                 <tr th:each="d : ${dateList}">
                     <h1 th:if="${schedule.get(d.getDate()) != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></h1>
-                    <td th:text="${d.getDate()}"></td>
+                    <td th:text="${d.getDateId()}"></td>
                     <!--<td th:if="${schedule.get(d).getStatus() != null}" th:text="${schedule.get(d).getStatus().getStatusName()}"></td>-->
-                    <td th:if="${schedule.get(d.getDate()) != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
+                    <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getEvent() != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getStartTime()}"></td>
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getWorkHours() != null}" th:text="${schedule.get(d.getDate()).getWorkHours().getFinishTime()}"></td>
                 </tr>
