@@ -62,7 +62,6 @@
                     <th>Work to</th>
                 </tr>
                 <tr th:each="d : ${dateList}">
-                    <h1 th:if="${schedule.get(d.getDate()) != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></h1>
                     <td th:text="${d.getDateId()}"></td>
                     <!--<td th:if="${schedule.get(d).getStatus() != null}" th:text="${schedule.get(d).getStatus().getStatusName()}"></td>-->
                     <td th:if="${schedule.get(d.getDate()) != null && schedule.get(d.getDate()).getEvent() != null}" th:text="${schedule.get(d.getDate()).getEvent().getEventName()}"></td>
