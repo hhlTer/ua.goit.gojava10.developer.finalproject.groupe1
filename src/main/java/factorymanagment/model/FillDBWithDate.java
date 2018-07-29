@@ -15,6 +15,14 @@ public class FillDBWithDate {
     private static String USER = "root";
     private static String PASSWORD = "admin12345";
 
+    /*
+    ALTER TABLE work_hours MODIFY id INT(11);
+    ALTER TABLE work_hours DROP PRIMARY KEY;
+    UPDATE work_hours SET id='0';
+    ALTER TABLE work_hours AUTO_INCREMENT=1;
+    ALTER TABLE work_hours MODIFY id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;
+     */
+
 
     public static void main(String[] args) {
 
@@ -22,7 +30,7 @@ public class FillDBWithDate {
 
         //2   fillWork_hoursForYear();
 
-        //3   fillEventScheduleForEmployeeId(1);
+        //3  fillEventScheduleForEmployeeId(1);
 
         //4   fillStatusScheduleForEmployeeId(1);
     }
@@ -196,8 +204,8 @@ public class FillDBWithDate {
 
             for (String day : calender) {
 
-                statement.execute("insert into event_schedule (date_date_string_id,employee_id, work_hours_id) " +
-                        "VALUES('" + day + "','" + eId + "','" + i + "')");
+                statement.execute("insert into event_schedule (date_date_string_id,employee_id, work_hours_id, event_id) " +
+                        "VALUES('" + day + "','" + eId + "','" + i + "','" + '1' + "')");
                 i++;
             }
 
