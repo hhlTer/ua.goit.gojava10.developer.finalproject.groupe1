@@ -77,8 +77,8 @@ public class ScheduleController extends MainController{
         date.setYear(y);
         calendar.setTime(date);
         int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-        String fromDate = dateStringGenerate(1, m, y);
-        String toDate = dateStringGenerate(lastDay, m, y);
+        String fromDate = dateStringGenerate(1, m+1, y);
+        String toDate = dateStringGenerate(lastDay, m+1, y);
         return new Period(fromDate, toDate);
     }
 
