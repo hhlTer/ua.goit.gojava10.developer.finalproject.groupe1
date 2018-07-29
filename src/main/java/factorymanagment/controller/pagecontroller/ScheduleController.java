@@ -55,7 +55,10 @@ public class ScheduleController extends MainController{
          * get only exists date in date table from current year;
          */
         List<DateTable> dateList = dateTableService.getByPeriod(period);
-        HashMap<Date, CalendarToOut> calendarMap = calendarToOutService.getCalendarToOut(period, employeeId);
+        TreeMap<Date, CalendarToOut> calendarMap = new TreeMap<>(calendarToOutService.getCalendarToOut(period, employeeId));
+
+        dateList.sort(Comparator.comparing(DateTable::getDate));
+
 
 //        sysoutCalendar(dateList, calendarMap);
 
@@ -93,7 +96,7 @@ public class ScheduleController extends MainController{
         return calendar.get(Calendar.MONTH);
     }
 
-    private void sysoutCalendar(List<DateTable> dateList, HashMap<Date, CalendarToOut> calendarToOutHashMap) {
+    private void sysoutCalendar(List<DateTable> dateList, TreeMap<Date, CalendarToOut> calendarToOutHashMap) {
         for (DateTable dt:
                 dateList) {
             if (null != dt.getDateId()){
