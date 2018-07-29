@@ -205,7 +205,7 @@ public class FillDBWithDate {
             for (String day : calender) {
 
                 statement.execute("insert into event_schedule (date_date_string_id,employee_id, work_hours_id, event_id) " +
-                        "VALUES('" + day + "','" + eId + "','" + i + "','" + '1' + "')");
+                        "VALUES('" + day + "','" + eId + "','" + 1 + "','" + '1' + "')");
                 i++;
             }
 
